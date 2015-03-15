@@ -1,0 +1,40 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <div class="item item-image">
+      <img src="http://ionicframework.com/img/docs/delorean.jpg">
+    </div>
+    <ion-slide-box show-pager="true">
+      <ion-slide>
+        <h1>Today's Events</h1>
+        <div class="list">
+          <a ng-repeat="event in eventsToday" href="/www/index.html#/tab/allevents" a class="item item-avatar-left">         
+            <img src="/img/ionic.png">
+            <h2>{{event.name}}</h2>
+            <p>{{event.parkName + "," + event.showtime}}</p>
+          </a>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <h1>Tomorrow's Events</h1>
+        <div class="list">
+          <a ng-repeat="event in eventsTomorrow" href="#/app/events/{{event.id}}" a class="item item-avatar-left">         
+            <img src="/img/ionic.png">
+            <h2>{{event.name}}</h2>
+            <p>{{event.parkName + "," + event.showtime}}</p>
+          </a>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <h1>Day After's Events</h1>
+        <div class="list">
+          <a ng-repeat="event in eventsDayAfter" href="#/app/events/{{event.id}}" a class="item item-avatar-left">         
+            <img src="/img/ionic.png">
+            <h2>{{event.name}}</h2>
+            <p>{{event.parkName + "," + event.showtime}}</p>
+          </a>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    
+  </ion-content>
+</ion-view>
