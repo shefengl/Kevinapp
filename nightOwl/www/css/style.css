@@ -71,5 +71,17 @@ p{
     padding: 20px;
 }
 
+.tabPadding{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.tabBorder{
+    border-width: 2px;
+    border-color: green;
+}
+
 Buttons{
     
