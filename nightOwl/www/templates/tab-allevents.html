@@ -1,62 +1,49 @@
+
 <ion-view view-title="All Events">
-  <ion-content class="padding">
-      <div class="list">
 
-  <a class="item item-icon-left" href="tab-home.html">
-    <i class="icon ion-email"></i>
-    
-  </a>
+    <div class="bar bar-header  bar-light">
+      <h1>ALL EVENTS</h1>
 
-  <a class="item item-icon-left item-icon-right" href="#">
-    <i class="icon ion-chatbubble-working"></i>
-    Call Ma
-    <i class="icon ion-ios7-telephone-outline"></i>
-  </a>
+      <div class="button-bar">
+        <a class="button" ng-click="loginAccount()">View By Date</a>
+        <a class="button" ng-click="loginAccount()">View A-Z</a>
+      </div>
+    </div>
 
-  <a class="item item-icon-left" href="#">
-    <i class="icon ion-mic-a"></i>
-    Record album
-    <span class="item-note">
-      Grammy
-    </span>
-  </a>
+    <ion-content>
+    <div data-ng-repeat="(date, events) in events" class="alpha_list">
+      <ion-item class="item item-divider" id="index_{{date}}">
+        {{date}}
+      </ion-item>
 
-  <a class="item item-icon-left" href="#">
-    <i class="icon ion-person-stalker"></i>
-    Friends
-    <span class="badge badge-assertive">0</span>
-  </a>
-  <div class="item item-divider">
-          GetEventByData()
-          </div>
+      <a ng-repeat="event in events" href="#/app/events/{{event.id}}" a class="item item-avatar-left">         
+        <img src="/img/{{event.categories[0]}}.png">
+        <h2>{{event.name}}</h2>
+        <p>{{event.parkName + "," + event.showtime}}</p>
+      </a>
 
-      <div class="list">
+    </div>
+    <!--
+    <div class = "list">
 
-  <a class="item item-icon-left" href="tab-home.html">
-    <i class="icon ion-email"></i>
-    
-  </a>
+    <div class="item item-divider" id="index_{{date}}"
+        ng-repeat-start="(date, events) in events">
+        {{date}}
+    </div>
 
-  <a class="item item-icon-left item-icon-right" href="#">
-    <i class="icon ion-chatbubble-working"></i>
-    Call Ma
-    <i class="icon ion-ios7-telephone-outline"></i>
-  </a>
+      <a ng-repeat="event in events" href="#/app/events/{{event.id}}" a class="item item-avatar-left">         
+        <img src="/img/{{event.categories[0]}}.png">
+        <h2>{{event.name}}</h2>
+        <p>{{event.parkName + "," + event.showtime}}</p>
+      </a>
 
-  <a class="item item-icon-left" href="#">
-    <i class="icon ion-mic-a"></i>
-    Record album
-    <span class="item-note">
-      Grammy
-    </span>
-  </a>
-
-  <a class="item item-icon-left" href="#">
-    <i class="icon ion-person-stalker"></i>
-    Friends
-    <span class="badge badge-assertive">0</span>
-  </a>
-
-</div>
+    <div ng-repeat-end></div>
+-->
   </ion-content>
+
+  <ul class="alpha_sidebar">
+    <li ng-click="gotoList('index_{{month.date}}')"ng-repeat="month in months"> 
+        {{month.name}}
+    </li>
+  </ul>
 </ion-view>

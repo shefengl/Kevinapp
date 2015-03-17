@@ -1,1 +1,71 @@
 /* Empty. Add your own CSS if you like */
+H1{
+     font-family: Futura-Bold; 
+     font-size: 22px;
+     color: #000000; 
+     letter-spacing: 1px; 
+     line-height: 22px;
+}
+
+
+H2{
+    font-family: Futura-Bold; 
+    font-size: 17px;
+    color: #000000; 
+    letter-spacing: 1px; 
+    line-height: 17px;
+}
+
+H3{
+    font-family: Futura-Bold; 
+    font-size: 13px;
+    color: #000000; 
+    letter-spacing: 1px; 
+    line-height: 15px;
+}
+
+.header-title{
+    font-family: SFMoviePoster-Bold; 
+    font-size: 34px;
+    color: #000 
+    letter-spacing: 3.4px;
+    line-height: 34px;
+}
+
+p{
+    font-family: GeometricSlab703BT-Medium; font-size: 13px;
+    color: #3A3A3A;
+    letter-spacing: 1px;
+    line-height: 15px;
+}
+
+.big-copy{
+    font-family: GeometricSlab703BT-Medium; font-size: 16px;
+    color: #231F20;
+    letter-spacing: 0.5px;
+    line-height: 19px;
+}
+
+.segment-labels-OFF{
+    font-family: Futura-Book; font-size: 11px;
+    color: #888888; 
+    letter-spacing: 0.5px; 
+    line-height: 13px;
+}
+
+.segment-labels-ON{
+    font-family: Futura-Book; font-size: 11px;
+    color: #888888; 
+    letter-spacing: 0.5px; 
+    line-height: 13px;
+}
+
+.tiny-labels{
+    font-family: Futura-Book; font-size: 10px;
+    color: #7D7D7D; 
+    letter-spacing: 0.2px; 
+    line-height: 12px;
+}
+
+Buttons{
+    

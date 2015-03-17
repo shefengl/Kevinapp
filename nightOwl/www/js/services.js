@@ -147,6 +147,20 @@ angular.module('nightOwl.services', [])
     }
   ];
 
+  var favoriteEvents = [];
+
+  var announcements = [
+    {
+      id: 1,
+      eventId: 1,
+      type: 'TimeChanged',
+      newLocation: null,
+      oldLocation: null,
+      newTime: '2015-03-13T18:21:00.511Z',
+      oldTime: '2015-03-13T18:21:00.511Z'
+    }
+  ];
+
   function formatAMPM(date) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
@@ -242,17 +256,23 @@ angular.module('nightOwl.services', [])
       return result;
     },
     addEventToFavorites: function(event) {
-      // TODO: Create this function
+      var index = favoriteEvents.indexOf(event);
+      if (index == -1) {
+        favoriteEvents.push(event);
+      }
     },
     removeEventFromFavorites: function(event) {
-      // TODO: Create this function
+      var index = favoriteEvents.indexOf(event);
+      if (index != -1) {
+        favoriteEvents.splice(index, 1);
+      }
     },
     getFavoriteEvents: function () {
-      // TODO: Create this function
+      return favoriteEvents;
     },
     getAnnouncements: function() {
-      // TODO: Create this function
-    }, 
+      return announcements;
+    },
     getParks: function() {
       return parks;
     },
