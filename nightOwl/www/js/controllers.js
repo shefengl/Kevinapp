@@ -1,4 +1,4 @@
-angular.module('nightOwl.controllers', [])
+angular.module('nightOwl.controllers', ['ionic'])
 
 .controller('NearbyCtrl', function($scope) {})
 .controller('HomeCtrl', function($scope, EventManager) {
@@ -22,11 +22,11 @@ angular.module('nightOwl.controllers', [])
   $scope.announcements = EventManager.getAnnouncements();
 })
 
-.controller('AlleventsCtrl', function($scope, EventManager) {
+.controller('AlleventsCtrl', function($scope, $stateParams, $location, $ionicScrollDelegate, EventManager) {
 	var events = EventManager.getAllEvents();
 
   $scope.events = {};
-  $scope.months = iterateMonths(events);//['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  $scope.months = iterateMonths(events);
 
   // Create autodividers for events
   var date;
@@ -37,6 +37,12 @@ angular.module('nightOwl.controllers', [])
     if(!$scope.events[date]) $scope.events[date] = [];
 
     $scope.events[date].push ( events[i] );
+  }
+
+  //Click letter event
+  $scope.gotoList = function(id){
+    $location.hash(id);
+    $ionicScrollDelegate.anchorScroll();
   }
 
   function iterateMonths(events) {
@@ -65,4 +71,11 @@ angular.module('nightOwl.controllers', [])
 
 .controller('MoreCtrl', function($scope) {
 
+})
+
+.controller('EventDetailCtrl', function($scope, $stateParams, $ionicHistory, EventManager) {
+  $scope.event = EventManager.getEvent($stateParams.eventId);
+  $scope.goBack = function() {
+    $ionicHistory.goBack();
+  };
 });

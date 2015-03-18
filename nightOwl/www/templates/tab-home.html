@@ -1,7 +1,7 @@
 <ion-view view-title="Home">
   <ion-content>
     <div class="item item-image">
-        <img src="/img/home_header.png">
+      <img src="img/home_header.png">
     </div>
     <ion-slide-box show-pager="true">
       <ion-slide> 
@@ -10,8 +10,8 @@
             <h1>Today's Events</h1>
           </div>
             
-          <a ng-repeat="event in eventsToday" href="#/tab/allevents" a class="item item-avatar-left">
-            <img src="/img/{{event.categories[0]}}.png">
+          <a ng-repeat="event in eventsToday" href="#/event/{{event.id}}" a class="item item-avatar-left">
+            <img src="img/{{event.categories[0]}}.png">
             <h2>{{event.name}}</h2>
             <p>{{event.parkName + "," + eventToday.showtime}}</p>
           </a>
@@ -23,8 +23,8 @@
           <div class="item item-divider">
             <h1>Tomorrow's Events</h1>
           </div>
-          <a ng-repeat="event in eventsTomorrow" href="#/app/events/{{event.id}}" a class="item item-avatar-left">  
-            <img src="/img/{{event.categories[0]}}.png">
+          <a ng-repeat="event in eventsTomorrow" href="#/event/{{event.id}}" a class="item item-avatar-left">  
+            <img src="img/{{event.categories[0]}}.png">
             <h2>{{event.name}}</h2>
             <p>{{event.parkName + "," + event.showtime}}</p>
           </a>
@@ -36,8 +36,8 @@
           <div class="item item-divider">
           <h1>The Day After Tomorrow's Events</h1>
           </div>
-          <a ng-repeat="event in eventsDayAfter" href="#/app/events/{{event.id}}" a class="item item-avatar-left">
-            <img src="/img/{{event.categories[0]}}.png">
+          <a ng-repeat="event in eventsDayAfter" href="#/event/{{event.id}}" a class="item item-avatar-left">
+            <img src="img/{{event.categories[0]}}.png">
             <h2>{{event.name}}</h2>
             <p>{{event.parkName + "," + event.showtime}}</p>
           </a>
@@ -48,21 +48,21 @@
       <a href="#/tab/allevents" a class="item item-divider item-icon-right">
         <h1>My Park Points</h1>
         <i class="icon ion-chevron-right"></i>
-      </a>   
+      </a>
     <div class="list card">
       <div class="item">
-        <h2>Night Out in the Parks is </h2>
-        <h2>brought to you by:</h2>
+         <h2>Night out in the Parks is</h2>
+         <h2>brought to you by:</h2>
+        </div>
+        <div class="item item-body">
+          <img class="full-image imageCenter" src="img/home_sponsor.png">
+            <p>Get the best connection for your</p>
+            <p>home with RCN Hight-Speed Internet</p>
+            <p>Digital TV</p>
+        </div>
       </div>
-      <div class="item item-body">
-        <img class="full-image imageCenter" src="/img/home_sponsor.png">
-          <p>Get the best connection for your</p>
-          <p>home with RCN Hight-Speed Internet</p>
-          <p>& Digitcal TV</p>
-      </div>
-    </div>
       <div class="item item-image">
-        <img src="/img/home_footer.png">
+        <img src="img/home_footer.png">
       </div>
   </ion-content>
 </ion-view>

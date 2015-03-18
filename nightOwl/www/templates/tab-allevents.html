@@ -1,54 +1,30 @@
-
 <ion-view view-title="All Events">
 
-    <div class="bar bar-header  bar-light">
-      <h1>ALL EVENTS</h1>
-    </div>
     <ion-content>
-        
-      <div class="btn-group btn-group-justified tabPadding" role="group">
-        <div class="btn-group tabBorder" role="group">
-            <button type="button" class="btn btn-default" ng-click="loginAccount()">View By Date</button>
+        <div class="headbar">
+        <h1>ALL EVENTS</h1>
         </div>
-        <div class="btn-group tabBorder" role="group">
-            <button type="button" class="btn btn-default" ng-click="loginAccount()">View A-Z</button>
+        <div>
+          <button type="button" class="buttons" ng-click="loginAccount()">View By Date </button>
+          <button type="button" class="buttons" ng-click="loginAccount()">View A-Z</button>
         </div>
-      </div>
     <div data-ng-repeat="(date, events) in events" class="alpha_list">
       <ion-item class="item item-divider" id="index_{{date}}">
         {{date}}
       </ion-item>
 
-      <a ng-repeat="event in events" href="#/app/events/{{event.id}}" a class="item item-avatar-left">         
-        <img src="/img/{{event.categories[0]}}.png">
+      <a ng-repeat="event in events" a href="#/event/{{event.id}}" class="item item-avatar-left">         
+        <img src="img/{{event.categories[0]}}.png">
         <h2>{{event.name}}</h2>
         <p>{{event.parkName + "," + event.showtime}}</p>
       </a>
 
     </div>
-    <!--
-    <div class = "list">
-
-    <div class="item item-divider" id="index_{{date}}"
-        ng-repeat-start="(date, events) in events">
-        {{date}}
-    </div>
-
-      <a ng-repeat="event in events" href="#/app/events/{{event.id}}" a class="item item-avatar-left">         
-        <img src="/img/{{event.categories[0]}}.png">
-        <h2>{{event.name}}</h2>
-        <p>{{event.parkName + "," + event.showtime}}</p>
-      </a>
-
-    <div ng-repeat-end></div>
--->
   </ion-content>
 
-<!--
   <ul class="alpha_sidebar">
     <li ng-click="gotoList('index_{{month.date}}')"ng-repeat="month in months"> 
         {{month.name}}
     </li>
   </ul>
--->
 </ion-view>

@@ -1,5 +1,5 @@
 /* Empty. Add your own CSS if you like */
-H1{
+h1{
      font-family: Futura-Bold; 
      font-size: 22px;
      color: #000000; 
@@ -8,7 +8,7 @@ H1{
 }
 
 
-H2{
+h2{
     font-family: Futura-Bold; 
     font-size: 17px;
     color: #000000; 
@@ -16,7 +16,7 @@ H2{
     line-height: 17px;
 }
 
-H3{
+h3{
     font-family: Futura-Bold; 
     font-size: 13px;
     color: #000000; 
@@ -59,6 +59,21 @@ p{
     letter-spacing: 0.5px; 
     line-height: 13px;
 }
+.alpha_sidebar{
+	position: absolute;
+	top:50px;
+	right: 	10px;
+	z-index: 100000
+}
+.alpha_sidebar li{
+	font-size: 10px;
+	margin-bottom: 30px;
+	cursor: pointer;
+}
+.alpha_list{
+	padding-right: 35px;
+}
+
 
 .tiny-labels{
     font-family: Futura-Book; font-size: 10px;
@@ -83,5 +98,17 @@ p{
     border-color: green;
 }
 
-Buttons{
+.buttons{
+    background: #00975A;
+    width:400px;
+    border-radius: 6px;
+    margin-bottom: 0;
+    height: 56px;
+    font-family: Futura-Bold; 
+    font-size: 13px;
+    color: #FFFFFF; letter-spacing: 2px; line-height: 25px;
+}
+
+
+
     
