@@ -109,6 +109,14 @@ p{
     color: #FFFFFF; letter-spacing: 2px; line-height: 25px;
 }
 
+.textBlue{
+    color: #0066CC;
+}
+
+.btnBorder{
+    border-radius: 5px;
+}
+
 
 
     
