@@ -159,3 +159,51 @@ p{
     position: relative;
     width: auto;
 }
+
+.movieFont{
+    color: blue;
+}
+
+.movieBg{
+    background: blue;
+}
+
+.musicFont{
+    color: aqua;
+}
+
+.musicBg{
+    background: aqua;
+}
+
+.theaterFont{
+    color: red;
+}
+
+.theaterBg{
+    background: red;
+}
+
+.danceFont{
+    color: purple;
+}
+
+.danceBg{
+    background: purple;
+}
+
+.familyFont{
+    color: orange;
+}
+
+.familyBg{
+    background: orange;
+}
+
+.festivalFont{
+    color: orangered;
+}
+
+.festivalBg{
+    background: orangered;
+}

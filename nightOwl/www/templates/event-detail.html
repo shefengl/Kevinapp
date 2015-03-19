@@ -13,14 +13,14 @@
       <div class="item item-body">
           <h2><b>{{event.rating}}</b></h2>
           <hr>
-          <h2>Lorem ipsum dolor sit amet, consectetur dasda lajslk ndkasn najks bakjhnak bajksd
+          <h2 ng-class="{'movieFont':event.categories[0]=='Movies','musicFont':event.categories[0]=='Music','festivalFont':event.categories[0]=='Festival','theaterFont':event.categories[0]=='Theater','danceFont':event.categories[0]=='Dancing','familyFont':event.categories[0]=='Family Fun'}">Lorem ipsum dolor sit amet, consectetur dasda lajslk ndkasn najks bakjhnak bajksd
               ndkalsn asmklfm sdkfm ksldfnm klnak nfklsdnf skdlnf sldnf aipsoij dfjsd sdofj
               nmlsdkfns s;di aos sldkl sdklks djaslidj aksljdkla akjsdnmkl alsndbjkla
           </h2>
           <hr>
           <h2><b>PERFORMED BY:</b></h2>
           <h2>The Performer's Company</h2>
-          <video width="100%" height="240" controls>
+          <video ng-show="event.categories[0]=='Movies'" width="100%" height="240" controls>
               <source src="http://www.youtube.com" type="video/mp4">
           </video>
           <h1><b>SHOWTIMES</b></h1>
@@ -29,12 +29,12 @@
         <h2><b style="text-align:left">TUESDAY, 24</b>
             <p style="text-align:right">{{event.showtime}}</p></h2>
         <hr>
-        <h2 class="textBlue" href="#"><b>{{park.name}}</b></h2>
+        <h2 ng-class="{'movieFont':event.categories[0]=='Movies','musicFont':event.categories[0]=='Music','festivalFont':event.categories[0]=='Festival','theaterFont':event.categories[0]=='Theater','danceFont':event.categories[0]=='Dancing','familyFont':event.categories[0]=='Family Fun'}"  href="#"><b>{{park.name}}</b></h2>
           <h2>{{park.address}}</h2>
           <br>
           <h2>Under nklasnd dasjdkl ndas hdioasj</h2>
-          <a class="button button-full button-positive btnBorder">SAVE To MY EVENTS</a>
-          <h2 class="textBlue"><b>SHARE THIS EVENT</b></h2>
+          <a class="button button-full btnBorder" ng-class="{'movieBg':event.categories[0]=='Movies','musicBg':event.categories[0]=='Music','festivalBg':event.categories[0]=='Festival','theaterBg':event.categories[0]=='Theater','danceBg':event.categories[0]=='Dancing','familyBg':event.categories[0]=='Family Fun'}">SAVE To MY EVENTS</a>
+          <h2 ng-class="{'movieFont':event.categories[0]=='Movies','musicFont':event.categories[0]=='Music','festivalFont':event.categories[0]=='Festival','theaterFont':event.categories[0]=='Theater','danceFont':event.categories[0]=='Dancing','familyFont':event.categories[0]=='Family Fun'}"><b>SHARE THIS EVENT</b></h2>
       </div>
       <div class="item item-body">
           <h1>
