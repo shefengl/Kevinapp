@@ -1,13 +1,17 @@
 <ion-view view-title="{{event.name}}">
   <ion-content class="padding">
-    <button class="button icon-left ion-chevron-left button-clear button-light" ng-click="goBack()">
+    <div class="item item-image topImage outer">
+    <img src="img/home_header.png">
+    <button class="button icon-left ion-chevron-left button-clear button-light topright" ng-click="goBack()">
     BACK
     </button>
-    <div class="item item-image topImage">
-      <img src="img/home_header.png">
+      
+      <div class="bottomleft">
+          {{event.categories[0]}}<br><br>
+          {{event.name}}
     </div>
       <div class="item item-body">
-          <h2><b>AGES 13</b></h2>
+          <h2><b>{{event.rating}}</b></h2>
           <hr>
           <h2>Lorem ipsum dolor sit amet, consectetur dasda lajslk ndkasn najks bakjhnak bajksd
               ndkalsn asmklfm sdkfm ksldfnm klnak nfklsdnf skdlnf sldnf aipsoij dfjsd sdofj
@@ -22,11 +26,11 @@
           <h1><b>SHOWTIMES</b></h1>
       </div>
       <div class="item item-body">
-        <h2><b style="text-align:left">TUESDAY, JUN. 24</b>
-            <p style="text-align:right">9:00-10:55 pm</p></h2>
+        <h2><b style="text-align:left">TUESDAY, 24</b>
+            <p style="text-align:right">{{event.showtime}}</p></h2>
         <hr>
-        <h2 class="textBlue"><b>ASTER PLAYLOT PARK</b></h2>
-          <h2>232 W Irving Park Rd, Chicago, IL, 60620</h2>
+        <h2 class="textBlue" href="#"><b>{{park.name}}</b></h2>
+          <h2>{{park.address}}</h2>
           <br>
           <h2>Under nklasnd dasjdkl ndas hdioasj</h2>
           <a class="button button-full button-positive btnBorder">SAVE To MY EVENTS</a>
@@ -40,17 +44,6 @@
       <div class="item item-image topImage">
           <img src="img/home_footer.png">
       </div>
-      <div class="item item-body">
-          <h2><b style="text-align:left">TUESDAY, 24</b></h2>
-          <p style="text-algin:right">9:00-10:55pm</p>
-          <p>&7 Entry Fee</p>
-          <hr>
-          <h2 class="textBlue">ASTER PLAYLOT PARK</h2>
-          <p>232 W Irving Park Rd, Chicago, IL 60620</p>
-          <br>
-          <p>Underwritten by The Logan Square Neighborhood Assocation</p>
-          <a class="button button-full button-positive btnBorder">SAVE TO MY EVENTS</a>
-          <h2 class="textBlue"><b>SHARE THIS SHOWTIME</b></h2>
-      </div>
+    
   </ion-content>
 </ion-view>

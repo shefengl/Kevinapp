@@ -1,19 +1,39 @@
 <ion-view view-title="All Events">
 
-    <ion-content>
-        <div class="headbar">
-        <h1>ALL EVENTS</h1>
-        </div>
-        <div>
-          <button type="button" class="buttons" ng-click="loginAccount()">View By Date </button>
-          <button type="button" class="buttons" ng-click="loginAccount()">View A-Z</button>
-        </div>
+    <div class="row">
+      <div class="col col-80 header-title" ng-click="openFilterModal()">ALL EVENTS <i class='ion-chevron-down'></i></div>
+      <!--<div class="col "><a class="button button-icon icon ion-navicon-round">LIST</a><a class="button button-icon icon ion-android-pin">MAP</a></div>-->
+      <div class="col col-10">
+        <a class="tab-item tiny-labels">
+          <i class="icon ion-navicon-round"></i>LIST
+        </a>
+      </div>
+      <div class="col col-10">
+        <a class="tab-item tiny-labels">
+          <i class="icon ion-android-pin"></i>MAP
+        </a>
+      </div>
+    </div>
+
+  
+    <!--<div>
+      <button type="button" class="buttons" ng-click="loginAccount()">View By Date </button>
+      <button type="button" class="buttons" ng-click="loginAccount()">View A-Z</button>
+    </div> -->
+
+    <!-- Only show this if viewing by list -->
+    <div class="button-bar">
+      <a class="button">View by Date</a>
+      <a class="button">View A-Z</a>
+    </div>
+
+    <ion-content class="padding allEventsSpacing">
     <div data-ng-repeat="(date, events) in events" class="alpha_list">
       <ion-item class="item item-divider" id="index_{{date}}">
         {{date}}
       </ion-item>
 
-      <a ng-repeat="event in events" a href="#/event/{{event.id}}" class="item item-avatar-left">         
+      <a ng-repeat="event in events" a href="#/tab/event-all/{{event.id}}" class="item item-avatar-left">         
         <img src="img/{{event.categories[0]}}.png">
         <h2>{{event.name}}</h2>
         <p>{{event.parkName + "," + event.showtime}}</p>

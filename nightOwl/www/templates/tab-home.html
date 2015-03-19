@@ -7,13 +7,13 @@
       <ion-slide> 
         <div class="list">
           <div class="item item-divider">
-            <h1>Today's Events</h1>
+            <h1>TODAY'S EVENTS</h1>
           </div>
             
-          <a ng-repeat="event in eventsToday" href="#/event/{{event.id}}" a class="item item-avatar-left">
+          <a ng-repeat="event in eventsToday" href="#/tab/event-home/{{event.id}}" a class="item item-avatar-left">
             <img src="img/{{event.categories[0]}}.png">
             <h2>{{event.name}}</h2>
-            <p>{{event.parkName + "," + eventToday.showtime}}</p>
+            <p>{{event.parkName + "," + event.showtime}}</p>
           </a>
         </div>
       </ion-slide>
@@ -21,9 +21,9 @@
       <ion-slide>
         <div class="list">  
           <div class="item item-divider">
-            <h1>Tomorrow's Events</h1>
+            <h1>TOMORROW'S EVENTS</h1>
           </div>
-          <a ng-repeat="event in eventsTomorrow" href="#/event/{{event.id}}" a class="item item-avatar-left">  
+          <a ng-repeat="event in eventsTomorrow" href="#/tab/event-home/{{event.id}}" a class="item item-avatar-left">  
             <img src="img/{{event.categories[0]}}.png">
             <h2>{{event.name}}</h2>
             <p>{{event.parkName + "," + event.showtime}}</p>
@@ -34,9 +34,9 @@
       <ion-slide>
         <div class="list">  
           <div class="item item-divider">
-          <h1>The Day After Tomorrow's Events</h1>
+          <h1>THE DAY AFTER TOMORROW'S EVENTS</h1>
           </div>
-          <a ng-repeat="event in eventsDayAfter" href="#/event/{{event.id}}" a class="item item-avatar-left">
+          <a ng-repeat="event in eventsDayAfter" href="#/tab/event-home/{{event.id}}" a class="item item-avatar-left">
             <img src="img/{{event.categories[0]}}.png">
             <h2>{{event.name}}</h2>
             <p>{{event.parkName + "," + event.showtime}}</p>

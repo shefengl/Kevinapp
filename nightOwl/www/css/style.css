@@ -61,7 +61,7 @@ p{
 }
 .alpha_sidebar{
 	position: absolute;
-	top:50px;
+	top:120px;
 	right: 	10px;
 	z-index: 100000
 }
@@ -109,6 +109,24 @@ p{
     color: #FFFFFF; letter-spacing: 2px; line-height: 25px;
 }
 
+
+.buttons-nobg{
+    font-family: Futura-Bold; 
+    font-size: 13px;
+    letter-spacing: 2px;
+        line-height: 25px;
+}
+
+.nearbyTab {
+  border-color: #00975A;
+  background-color: #00975A;
+  color: #fff; 
+}
+
+.allEventsSpacing {
+    top: 120px;
+}
+
 .textBlue{
     color: #0066CC;
 }
@@ -117,6 +135,27 @@ p{
     border-radius: 5px;
 }
 
-
-
-    
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    top:300px;
+    left: 0em;
+    width:100px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 50px;
+}
+.topright {
+    position: absolute; 
+    top: 1em;
+    left:  2em;
+    width: 120px;
+    padding: 4px;
+    background-color: #fff;
+    font-weight: bold;
+    font-size: 11px;
+}
+.out{
+    position: relative;
+    width: auto;
+}

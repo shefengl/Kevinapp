@@ -14,7 +14,9 @@ angular.module('nightOwl.services', [])
       startDate: '2015-03-13T18:21:00.511Z',
       endDate: '2015-03-13T18:22:30.511Z',
       underwrittenDescription: '',
-      status: 'default'
+      status: 'default',
+      rating: 'PG-13',
+      closedCaptions: true
     },
     { 
       id: 2,
@@ -27,7 +29,8 @@ angular.module('nightOwl.services', [])
       startDate: '2015-03-13T18:21:00.511Z',
       endDate: '2015-03-13T18:22:30.511Z',
       underwrittenDescription: '',
-      status: 'default'
+      status: 'default',
+      rating: 'ages 13+'
     },
     { 
       id: 3,

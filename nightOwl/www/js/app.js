@@ -21,7 +21,10 @@ angular.module('nightOwl', ['ionic', 'nightOwl.controllers', 'nightOwl.services'
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+  // Place the tabs always at the bottom, regardless if it's Android.
+  $ionicConfigProvider.tabs.position('bottom');
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -87,12 +90,26 @@ angular.module('nightOwl', ['ionic', 'nightOwl.controllers', 'nightOwl.services'
     }
   })
 
-  .state('event', {
-    url: '/event/:eventId',
-    templateUrl: 'templates/event-detail.html',
-    controller: 'EventDetailCtrl'
+  .state('tab.event-all', {
+    url: '/event-all/:eventId',
+    views: {
+      'tab-allevents': {
+        templateUrl: 'templates/event-detail.html',
+        controller: 'EventDetailCtrl'
+      }
+    }
+  })
+
+  .state('tab.event-home', {
+    url: '/event-home/:eventId',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/event-detail.html',
+        controller: 'EventDetailCtrl'
+      }
+    }
   });
-  
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 

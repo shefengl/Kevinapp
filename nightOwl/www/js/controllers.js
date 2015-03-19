@@ -22,7 +22,7 @@ angular.module('nightOwl.controllers', ['ionic'])
   $scope.announcements = EventManager.getAnnouncements();
 })
 
-.controller('AlleventsCtrl', function($scope, $stateParams, $location, $ionicScrollDelegate, EventManager) {
+.controller('AlleventsCtrl', function($scope, $stateParams, $location, $ionicScrollDelegate, $ionicModal, EventManager) {
 	var events = EventManager.getAllEvents();
 
   $scope.events = {};
@@ -63,6 +63,31 @@ angular.module('nightOwl.controllers', ['ionic'])
     }
     return res;
   }
+  // Filter modal
+  $ionicModal.fromTemplateUrl('templates/modal-filter.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openFilterModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeFilterModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  });
 })
 
 .controller('MyeventsCtrl', function($scope) {
@@ -75,6 +100,7 @@ angular.module('nightOwl.controllers', ['ionic'])
 
 .controller('EventDetailCtrl', function($scope, $stateParams, $ionicHistory, EventManager) {
   $scope.event = EventManager.getEvent($stateParams.eventId);
+  $scope.park=EventManager.getEventPark($scope.event);
   $scope.goBack = function() {
     $ionicHistory.goBack();
   };
