@@ -1,0 +1,159 @@
+{
+  "events" :[
+    { 
+      "id": 1,
+      "name": "THE PRINCESS BRIDE",
+      "category": "Movies",
+      "description": "",
+      "specialBackgroundUrl": "",
+      "trailerUrl": "",
+      "parkId": 1,
+      "startDate": "2015-03-13T18:21:00.511Z",
+      "endDate": "2015-03-13T18:22:30.511Z",
+      "underwrittenDescription": "",
+      "status": "default",
+      "rating": "PG-13",
+      "closedCaptions": true
+    },
+    { 
+      "id": 2,
+      "name": "GOSPEL FEST PARTNERSHIP",
+      "category": "Festival",
+      "description": "",
+      "specialBackgroundUrl": "",
+      "trailerUrl": "",
+      "parkId": 2,
+      "startDate": "2015-03-13T18:21:00.511Z",
+      "endDate": "2015-03-13T18:22:30.511Z",
+      "underwrittenDescription": "",
+      "status": "default",
+      "rating": "ages 13+"
+    },
+    { 
+      "id": 3,
+      "name": "SPORTS INSTRUCTION AND FUNDAMENTALS",
+      "category": "Festival",
+      "description": "",
+      "specialBackgroundUrl": "",
+      "trailerUrl": "",
+      "parkId": 1,
+      "startDate": "2015-03-13T18:21:00.511Z",
+      "endDate": "2015-03-13T18:22:30.511Z",
+      "underwrittenDescription": "",
+      "status": "default"
+    },
+    { 
+      "id": 4,
+      "name": "SPORTS INSTRUCTION AND FUNDAMENTALS",
+      "category": "Festival",
+      "description": "",
+      "specialBackgroundUrl": "",
+      "trailerUrl": "",
+      "parkId": 4,
+      "startDate": "2015-03-13T18:21:00.511Z",
+      "endDate": "2015-03-13T18:22:30.511Z",
+      "underwrittenDescription": "",
+      "status": "default"
+    },
+    { 
+      "id": 5,
+      "name": "KIDSMOBILE",
+      "category": "Family Fun",
+      "description": "",
+      "specialBackgroundUrl": "",
+      "trailerUrl": "",
+      "parkId": 4,
+      "startDate": "2015-03-13T18:21:00.511Z",
+      "endDate": "2015-03-13T18:22:30.511Z",
+      "underwrittenDescription": "",
+      "status": "default"
+    },
+    { 
+      "id": 6,
+      "name": "TOO MUCH LIGHT MAKES THE",
+      "category": "Theater",
+      "description": "",
+      "specialBackgroundUrl": "",
+      "trailerUrl": "",
+      "parkId": 4,
+      "startDate": "2015-03-13T18:21:00.511Z",
+      "endDate": "2015-03-13T18:22:30.511Z",
+      "underwrittenDescription": "",
+      "status": "default"
+    },
+    { 
+      "id": 7,
+      "name": "MUSIC FESTIVAL EVENTS",
+      "category": "Festival",
+      "description": "",
+      "specialBackgroundUrl": "",
+      "trailerUrl": "",
+      "parkId": 4,
+      "startDate": "2015-03-13T18:21:00.511Z",
+      "endDate": "2015-03-13T18:22:30.511Z",
+      "underwrittenDescription": "",
+      "status": "default"
+    }
+  ],
+  "parks" : [
+    {
+      "id": 1,
+      "name": "Jonquill Park",
+      "address": "Jonquil Playlot Park, 1001 W Wrightwood Ave, Chicago, IL 60614",
+      "latitude":  41.9285508,
+      "longitude":-87.6546109,
+      "radius": 1,
+      "region": "north",
+      "polylines": [],
+      "phoneNumber": "+1 312-742-7816"
+    },
+
+    {
+      "id": 2,
+      "name": "Fuller Park",
+      "address": "331 W. 45th St  Chicago, Illinois 60609",
+      "latitude":  41.9285508,
+      "longitude":-87.6546109,
+      "radius": 1,
+      "region": "north",
+      "polylines": [],
+      "phoneNumber": ""
+    },
+
+    {
+      "id": 3,
+      "name": "Cornell Square Park",
+      "address": "1809 W 50th St, Chicago, IL 60609",
+      "latitude":  41.802087,
+      "longitude":-87.671366,
+      "radius": 1,
+      "region": "north",
+      "polylines": [],
+      "phoneNumber": "+1 312-747-6097"
+    },
+
+    {
+      "id": 4,
+      "name": "Union Park",
+      "address": "1501 W Randolph St, Chicago, IL 60607",
+      "latitude":  41.9285508,
+      "longitude":-87.6546109,
+      "radius": 1,
+      "region": "north",
+      "polylines": [],
+      "phoneNumber": "+1 312-746-5494"
+    }
+  ],
+
+  "announcements" : [
+    {
+      "id": 1,
+      "eventId": 1,
+      "type": "TimeChanged",
+      "newLocation": null,
+      "oldLocation": null,
+      "newTime": "2015-03-13T18:21:00.511Z",
+      "oldTime": "2015-03-13T18:21:00.511Z"
+    }
+  ]
+}

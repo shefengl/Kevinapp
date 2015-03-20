@@ -14,55 +14,67 @@ angular.module('nightOwl.controllers', ['ionic'])
   var dayAfter = addDays(today, 2);
 
   // Set event variables
-	$scope.eventsToday = EventManager.getEventsByDate(today);
-	$scope.eventsTomorrow = EventManager.getEventsByDate(tomorrow);
-	$scope.eventsDayAfter = EventManager.getEventsByDate(dayAfter);
+	EventManager.getEventsByDate(today, function(events) {
+    $scope.eventsToday = events;
+  });
+  EventManager.getEventsByDate(tomorrow, function(events) {
+    $scope.eventsTomorrow = events;
+  });
+  EventManager.getEventsByDate(today, function(events) {
+    $scope.eventsDayAfter = dayAfter;
+  });
 
   // Set announcements
-  $scope.announcements = EventManager.getAnnouncements();
+  EventManager.getAnnouncements(function(announcements){
+    $scope.announcements = announcements;
+  });
 })
 
 .controller('AlleventsCtrl', function($scope, $stateParams, $location, $ionicScrollDelegate, $ionicModal, EventManager) {
-	var events = EventManager.getAllEvents();
+	EventManager.getEvents(function(events){
 
-  $scope.events = {};
-  $scope.months = iterateMonths(events);
+    $scope.events = {};
+    $scope.months = iterateMonths(events);
 
-  // Create autodividers for events
-  var date;
+    // Create autodividers for events
+    var date;
 
-  for(var i = 0; i < events.length; i++) {
-    date = new Date(events[i].startDate).toDateString();
+    for(var i = 0; i < events.length; i++) {
+      date = new Date(events[i].startDate).toDateString();
 
-    if(!$scope.events[date]) $scope.events[date] = [];
+      if(!$scope.events[date]) $scope.events[date] = [];
 
-    $scope.events[date].push ( events[i] );
-  }
+      $scope.events[date].push ( events[i] );
+    }
 
-  //Click letter event
+    // Create a months array with names and dates
+    function iterateMonths(events) {
+      var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      var res = [];
+      for (var i = 0; i < months.length; i++) {
+        res[i] = {};
+        res[i].name = months[i];
+        res[i].date = months[i];
+
+        for (var j = 0; j < events.length; j++) {
+          var d = new Date(events[j].startDate);
+          if (d.getMonth() == i) {
+            res[i].date = d.toDateString();
+            break;
+          }
+        }
+      }
+      return res;
+    }
+  });
+
+
+  // Click month event
   $scope.gotoList = function(id){
     $location.hash(id);
     $ionicScrollDelegate.anchorScroll();
   }
 
-  function iterateMonths(events) {
-    var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-    var res = [];
-    for (var i = 0; i < months.length; i++) {
-      res[i] = {};
-      res[i].name = months[i];
-      res[i].date = months[i];
-
-      for (var j = 0; j < events.length; j++) {
-        var d = new Date(events[j].startDate);
-        if (d.getMonth() == i) {
-          res[i].date = d.toDateString();
-          break;
-        }
-      }
-    }
-    return res;
-  }
   // Filter modal
   $ionicModal.fromTemplateUrl('templates/modal-filter.html', {
     scope: $scope,
@@ -99,8 +111,12 @@ angular.module('nightOwl.controllers', ['ionic'])
 })
 
 .controller('EventDetailCtrl', function($scope, $stateParams, $ionicHistory, EventManager) {
-  $scope.event = EventManager.getEvent($stateParams.eventId);
-  $scope.park=EventManager.getEventPark($scope.event);
+  EventManager.getEvent($stateParams.eventId, function(event){
+    $scope.event = event;
+    EventManager.getEventPark(event, function(park) {
+      $scope.park = park;
+    });
+  });
   $scope.goBack = function() {
     $ionicHistory.goBack();
   };

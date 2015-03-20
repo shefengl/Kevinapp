@@ -11,7 +11,7 @@
           </div>
             
           <a ng-repeat="event in eventsToday" href="#/tab/event-home/{{event.id}}" a class="item item-avatar-left">
-            <img src="img/{{event.categories[0]}}.png">
+            <img class="listThumbnail" src="img/icon_{{event.category}}.png">
             <h2>{{event.name}}</h2>
             <p>{{event.parkName + "," + event.showtime}}</p>
           </a>
@@ -24,7 +24,7 @@
             <h1>TOMORROW'S EVENTS</h1>
           </div>
           <a ng-repeat="event in eventsTomorrow" href="#/tab/event-home/{{event.id}}" a class="item item-avatar-left">  
-            <img src="img/{{event.categories[0]}}.png">
+            <img class="listThumbnail" src="img/icon_{{event.category}}.png">
             <h2>{{event.name}}</h2>
             <p>{{event.parkName + "," + event.showtime}}</p>
           </a>
@@ -37,7 +37,7 @@
           <h1>THE DAY AFTER TOMORROW'S EVENTS</h1>
           </div>
           <a ng-repeat="event in eventsDayAfter" href="#/tab/event-home/{{event.id}}" a class="item item-avatar-left">
-            <img src="img/{{event.categories[0]}}.png">
+            <img class="listThumbnail" src="img/icon_{{event.category}}.png">
             <h2>{{event.name}}</h2>
             <p>{{event.parkName + "," + event.showtime}}</p>
           </a>

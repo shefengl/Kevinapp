@@ -160,6 +160,10 @@ p{
     width: auto;
 }
 
+img.listThumbnail {
+    border-radius: 0% !important;
+}
+
 .movieFont{
     color: blue;
 }
