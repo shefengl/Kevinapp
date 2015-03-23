@@ -63,6 +63,54 @@ angular.module('nightOwl.services', [])
           var endDate = new Date(events[i].endDate);
           events[i].showtime = formatAMPM(startDate) + '-' + formatAMPM(endDate);
         }
+		
+		// Prepare useful data on announcements
+		for (var i = 0; i < announcements.length; i++) {
+		  // TODO(andi): Remove this when moving to a real database. TESTING PURPOSES ONLY
+		  var date = new Date();
+		  if (i > 2) {
+			date = addDays(date, 1);
+			if (i > 4) {
+			  date = addDays(date, 1);
+			}
+		  }
+		  date.setHours(9,0,0,0);
+		  var oldStartDate = date.toISOString();
+		
+		  date.setHours(9,30,0,0);
+		  var oldEndDate = date.toISOString();
+		  
+		  date.setHours(14,0,0,0);
+		  var newStartDate = date.toISOString();
+		
+		  date.setHours(14,30,0,0);
+		  var newEndDate = date.toISOString();
+		  
+		  // Assign event name, for convenience
+		  for (var j = 0; j < events.length; j++) {
+			if (announcements[i].eventId == events[j].id) {
+			  announcements[i].eventName = events[j].name;
+			  announcements[i].category= events[j].category;
+			  break;
+			}
+		  }
+		  
+		  // Assign park name, for convenience
+		  for (var j = 0; j < parks.length; j++) {
+			if (announcements[i].oldParkId == parks[j].id) {
+			  announcements[i].oldLocation = parks[j].name;
+			}else if (announcements[i].newParkId == parks[j].id) {
+			  announcements[i].newLocation = parks[j].name;
+			}
+		  }
+		  
+		  // Assign showtime for convenience purposes
+		  announcements[i].oldShowTime = formatAMPM(new Date(oldStartDate)) + '-' + formatAMPM(new Date(oldEndDate));
+		  announcements[i].newShowTime = formatAMPM(new Date(newStartDate)) + '-' + formatAMPM(new Date(newEndDate));
+		}
+		
+		
+		
         cachedEvents = true;
         callback();
       });

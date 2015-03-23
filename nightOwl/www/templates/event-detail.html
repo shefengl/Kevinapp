@@ -1,5 +1,5 @@
 <ion-view view-title="{{event.name}}">
-  <ion-content>
+  <ion-content >
     <div class="item item-image topImage outer">
     <img src="img/bg_{{event.category}}.png">
     <button class="button icon-left ion-chevron-left button-clear button-light topright" ng-click="goBack()">
@@ -10,7 +10,7 @@
           {{event.category}}<br><br>
           {{event.name}}
     </div>
-      <div class="item item-body">
+      <div class="item item-body text-left" >
           <h2><b>{{event.rating}}</b></h2>
           <hr>
           <h2 ng-class="{'movieFont':event.category=='Movies','musicFont':event.category=='Music','festivalFont':event.category=='Festival','theaterFont':event.category=='Theater','danceFont':event.category=='Dancing','familyFont':event.category=='Family Fun'}">
@@ -26,7 +26,7 @@
           </video>
           <h1><b>SHOWTIMES</b></h1>
       </div>
-      <div class="item item-body">
+      <div class="item item-body text-left">
         <h2><b style="text-align:left">TUESDAY, 24</b>
             <p style="text-align:right">{{event.showtime}}</p></h2>
         <hr>
@@ -37,7 +37,7 @@
           <a class="button button-full btnBorder" ng-class="{'movieBg':event.category=='Movies','musicBg':event.category=='Music','festivalBg':event.category=='Festival','theaterBg':event.category=='Theater','danceBg':event.category=='Dancing','familyBg':event.category=='Family Fun'}">SAVE To MY EVENTS</a>
           <h2 ng-class="{'movieFont':event.category=='Movies','musicFont':event.category=='Music','festivalFont':event.category=='Festival','theaterFont':event.category=='Theater','danceFont':event.category=='Dancing','familyFont':event.category=='Family Fun'}"><b>SHARE THIS EVENT</b></h2>
       </div>
-      <div class="item item-body">
+      <div class="item item-body text-left">
           <h1>
               <b class="textBlue">VIEW 4 MORE SHOWTIMES</b>
           </h1>

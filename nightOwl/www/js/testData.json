@@ -150,10 +150,36 @@
       "id": 1,
       "eventId": 1,
       "type": "TimeChanged",
-      "newLocation": null,
-      "oldLocation": null,
+      "newLocation": "",
+      "oldLocation": "",
       "newTime": "2015-03-13T18:21:00.511Z",
-      "oldTime": "2015-03-13T18:21:00.511Z"
+	  "oldTime": "2015-03-13T18:21:00.511Z",
+	  "oldParkId": 1,
+	  "newParkId": ""
+    },
+	
+	{
+      "id": 2,
+      "eventId": 2,
+      "type": "EventCancelled",
+      "newLocation": "",
+      "oldLocation": "",
+      "newTime": "2015-03-13T18:21:00.511Z",
+	  "oldTime": "2015-03-13T18:21:00.511Z",
+	  "oldParkId": 2,
+	  "newParkId": ""
+    },
+	
+	{
+      "id": 3,
+      "eventId": 3,
+      "type": "LocationChanged",
+      "newLocation": "",
+      "oldLocation": "",
+      "newTime": "2015-03-13T18:21:00.511Z",
+	  "oldTime": "2015-03-13T18:21:00.511Z",
+	  "oldParkId": 2,
+	  "newParkId": 3
     }
   ]
 }
