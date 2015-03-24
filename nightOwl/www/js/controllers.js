@@ -102,8 +102,42 @@ angular.module('nightOwl.controllers', ['ionic'])
   });
 })
 
-.controller('MyeventsCtrl', function($scope) {
+.controller('MyeventsCtrl', function($scope, $stateParams, $location, $ionicScrollDelegate, $ionicModal, EventManager) {
+    
+    EventManager.getEvents(function(events){
 
+    $scope.events = {};
+    $scope.months = iterateMonths(events);
+    
+        var date;
+
+    for(var i = 0; i < events.length; i++) {
+      date = new Date(events[i].startDate).toDateString();
+      
+      if(!$scope.events[date]) $scope.events[date] = [];
+      
+      $scope.events[date].push ( events[i] );
+    }
+
+    function iterateMonths(events) {
+      var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      var res = [];
+      for (var i = 0; i < months.length; i++) {
+        res[i] = {};
+        res[i].name = months[i];
+        res[i].date = months[i];
+
+        for (var j = 0; j < events.length; j++) {
+          var d = new Date(events[j].startDate);
+          if (d.getMonth() == i) {
+            res[i].date = d.toDateString();
+            break;
+          }
+        }
+      }
+      return res;
+    }
+  });
 })
 
 .controller('MoreCtrl', function($scope) {

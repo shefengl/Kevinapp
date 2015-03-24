@@ -1,5 +1,5 @@
 <ion-view view-title="{{event.name}}">
-  <ion-content >
+  <ion-content class="padding">
     <div class="item item-image topImage outer">
     <img src="img/bg_{{event.category}}.png">
     <button class="button icon-left ion-chevron-left button-clear button-light topright" ng-click="goBack()">
@@ -10,7 +10,7 @@
           {{event.category}}<br><br>
           {{event.name}}
     </div>
-      <div class="item item-body text-left" >
+      <div class="item item-body text-left">
           <h2><b>{{event.rating}}</b></h2>
           <hr>
           <h2 ng-class="{'movieFont':event.category=='Movies','musicFont':event.category=='Music','festivalFont':event.category=='Festival','theaterFont':event.category=='Theater','danceFont':event.category=='Dancing','familyFont':event.category=='Family Fun'}">

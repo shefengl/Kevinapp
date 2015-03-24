@@ -63,8 +63,8 @@ angular.module('nightOwl.services', [])
           var endDate = new Date(events[i].endDate);
           events[i].showtime = formatAMPM(startDate) + '-' + formatAMPM(endDate);
         }
-		
-		// Prepare useful data on announcements
+          
+          // Prepare useful data on announcements
 		for (var i = 0; i < announcements.length; i++) {
 		  // TODO(andi): Remove this when moving to a real database. TESTING PURPOSES ONLY
 		  var date = new Date();
@@ -108,9 +108,9 @@ angular.module('nightOwl.services', [])
 		  announcements[i].oldShowTime = formatAMPM(new Date(oldStartDate)) + '-' + formatAMPM(new Date(oldEndDate));
 		  announcements[i].newShowTime = formatAMPM(new Date(newStartDate)) + '-' + formatAMPM(new Date(newEndDate));
 		}
-		
-		
-		
+          
+          
+          
         cachedEvents = true;
         callback();
       });
