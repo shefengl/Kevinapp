@@ -4,11 +4,11 @@
       <img src="img/home_header.png">
     </div>
       <div class="list text-left" ng-show = "announcements.length > 0" >
-          <div class="item item-divider">
+          <div class="item item-divider announcementBg">
             <h1>ANNOUNCEMENTS</h1>
           </div>
             
-          <a ng-repeat="announcement in announcements" href="#/tab/event-home/{{announcement.eventId}}" a class="item item-avatar-left">
+          <a ng-show="announcements.length()!=0" ng-repeat="announcement in announcements" href="#/tab/event-home/{{announcement.eventId}}" a class="item item-avatar-left announcementBg">
            	<img class="listThumbnail"  src="img/icon_{{announcement.category}}.png">
        		
             <h2 ng-show = "announcement.type != 'EventCancelled'">{{announcement.eventName}}</h2>
