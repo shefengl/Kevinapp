@@ -103,6 +103,12 @@ angular.module('nightOwl.controllers', ['ionic'])
 })
 
 .controller('MyeventsCtrl', function($scope, $stateParams, $location, $ionicScrollDelegate, $ionicModal, EventManager) {
+    $scope.data={
+        showDelete:false
+    };
+    $scope.onEventDelete= function(event){
+        $scope.events.splice($scope.events.indexof(event),1);
+    };
     
     EventManager.getEvents(function(events){
 
