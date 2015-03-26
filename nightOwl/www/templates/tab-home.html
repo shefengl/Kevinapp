@@ -11,8 +11,13 @@
           <a ng-show="announcements.length()!=0" ng-repeat="announcement in announcements" href="#/tab/event-home/{{announcement.eventId}}" a class="item item-avatar-left announcementBg item-text-wrap">
            	<img class="listThumbnail"  src="img/icon_{{announcement.category}}.png">
        		
+<<<<<<< HEAD
             <p ng-show = "announcement.type != 'EventCancelled'"><font size="3" color="black"><b>{{announcement.eventName}}</b></font></p>
             <h2 ng-show = "announcement.type == 'EventCancelled'"><s>{{announcement.eventName}}</s></h2>
+=======
+              <p ng-show = "announcement.type != 'EventCancelled'"><font size="3" color="black"><b>{{announcement.eventName}}</b></font></p>
+              <p ng-show = "announcement.type == 'EventCancelled'"><s><font size="3" color="black"><b>{{announcement.eventName}}</b></font></s></p>
+>>>>>>> 9aba97bed024e857863d0b921aad87a96163c2d4
             <p ng-show = "announcement.type == 'TimeChanged'">{{announcement.oldLocation + ","}}<s>{{announcement.oldShowTime}}</s></p>
             <p ng-show = "announcement.type == 'LocationChanged'"><s>{{announcement.oldLocation + ","}}</s>{{announcement.oldShowTime}}</p>
             <p ng-show = "announcement.type == 'EventCancelled'"><s>{{announcement.oldLocation + "," + announcement.oldShowTime}}</s></p>
