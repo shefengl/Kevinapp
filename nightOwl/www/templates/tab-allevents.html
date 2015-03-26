@@ -33,10 +33,11 @@
         {{date}}
       </ion-item>
 
-      <a ng-repeat="event in events | filter:filters" a href="#/tab/event-all/{{event.id}}" class="item item-avatar-left">         
+      <a ng-style="{'background-image':'url({{event.specialBackgroundUrl}})'}" ng-repeat="event in events | filter:filters" a href="#/tab/event-all/{{event.id}}" class="item item-avatar-left item-text-wrap">         
         <img class="listThumbnail" src="img/icon_{{event.category}}.png">
-        <h2>{{event.name}}</h2>
-        <p>{{event.parkName + "," + event.showtime}}</p>
+        <h2 ng-class="{'featuredMovieFonts': event.specialBackgroundUrl !=''}" >{{event.name}}<img ng-show="event.category=='Movies'" src="img/event_rating{{event.rating}}.png"><img ng-show="event.category=='Movies'" src="img/event_closedCaptions.png"></h2>
+        
+        <h2 ng-class="{'featuredMovieFonts': event.specialBackgroundUrl!=''}">{{event.parkName + "," + event.showtime}}</h2>
       </a>
 
     </div>

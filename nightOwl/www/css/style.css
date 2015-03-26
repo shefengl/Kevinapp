@@ -10,10 +10,10 @@ h1{
 
 h2{
     font-family: Futura-Bold; 
-    font-size: 17px;
+    font-size: 5px;
     color: #000000; 
     letter-spacing: 1px; 
-    line-height: 17px;
+    line-height: 20px;
 }
 
 h3{
@@ -214,4 +214,8 @@ img.listThumbnail {
 
 .announcementBg{
     background-color: #FFFF66!important;
+}
+
+.featuredMovieFonts{
+    color:white;
 }
