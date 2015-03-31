@@ -1,5 +1,5 @@
-<ion-view view-title="My events">
- 	<div ng-show = "isEditMode == 'false'" class="row">
+<ion-view view-title="My Events">
+  <div ng-show = "isEditMode == 'false'" class="row">
       	<div class="col col-80 header-title" ng-click="openFilterModal()">ALL MY EVENTS <i class='ion-chevron-down'></i></div>
       	<div class="col col-20">
        	<a class="tab-item tiny-labels" ng-click="setEditMode('true')"><h1>EDIT</h1> </a>
@@ -14,7 +14,9 @@
    		 </button>
       </div>
 	</div>
-  	<ion-content class="padding myEventsSpacing">
+  <hr>
+  
+  <ion-content class="padding myEventsSpacing">
     	<div data-ng-repeat="(date, favoriteevents) in favoriteevents" class="alpha_list">
      		<ion-item class="item item-divider" id="index_{{date}}">
        			{{date}}
@@ -34,5 +36,6 @@
       		</div>
     	</div>
   	</ion-content>
-    
 </ion-view>
+
+

@@ -3,35 +3,35 @@
     <div class="item item-image">
       <img src="img/home_header.png">
     </div>
-    	<div class="list text-left" ng-show = "announcements.length > 0" >
-          <div class="item item-divider">
-            <h1>ANNOUNCEMENTS</h1>
-          </div>
-            
-          <a ng-repeat="announcement in announcements" href="#/tab/event-home/{{announcement.eventId}}" a class="item item-avatar-left">
-           	<img class="listThumbnail"  src="img/icon_{{announcement.category}}.png">
-       		
-            <h2 ng-show = "announcement.type != 'EventCancelled'">{{announcement.eventName}}</h2>
-            <h2 ng-show = "announcement.type == 'EventCancelled'"><s>{{announcement.eventName}}</s></h2>
-            <p ng-show = "announcement.type == 'TimeChanged'">{{announcement.oldLocation + ","}}<s>{{announcement.oldShowTime}}</s></p>
-            <p ng-show = "announcement.type == 'LocationChanged'"><s>{{announcement.oldLocation + ","}}</s>{{announcement.oldShowTime}}</p>
-            <p ng-show = "announcement.type == 'EventCancelled'">{{announcement.oldLocation + "," + announcement.oldShowTime}}</p>
-            <h3 ng-show = "announcement.type == 'TimeChanged'">This event's time has changed to {{announcement.newShowTime}}</h3>
-      		<h3 ng-show = "announcement.type == 'EventCancelled'">This event is cancelled</h3>
-      		<h3 ng-show = "announcement.type == 'LocationChanged'">The event's location has changed to {{announcement.newLocation}}</h3>
-      
-          </a>
-        </div>
+
+    <div class="list text-left" ng-show = "announcements.length > 0" >
+      <div class="item item-divider announcementBg">
+        <h1>ANNOUNCEMENTS</h1>
+        <a ng-show="announcements.length!=0" ng-repeat="announcement in announcements" ng-href="#/tab/event-home/{{announcement.eventId}}" a class="item item-avatar-left announcementBg item-text-wrap">
+         	<img class="listThumbnail"  ng-src="img/icon_{{announcement.category}}.png">
+          
+          <p ng-show = "announcement.type != 'EventCancelled'"><font size="3" color="black"><b>{{announcement.eventName}}</b></font></p>
+          <h2 ng-show = "announcement.type == 'EventCancelled'"><s>{{announcement.eventName}}</s></h2>
+          <p ng-show = "announcement.type == 'TimeChanged'">{{announcement.oldLocation + ","}}<s>{{announcement.oldShowTime}}</s></p>
+          <p ng-show = "announcement.type == 'LocationChanged'"><s>{{announcement.oldLocation + ","}}</s>{{announcement.oldShowTime}}</p>
+          <p ng-show = "announcement.type == 'EventCancelled'"><s>{{announcement.oldLocation + "," + announcement.oldShowTime}}</s></p>
+          <p ng-show = "announcement.type == 'TimeChanged'">This event's time has changed to {{announcement.newShowTime}}</p>
+          <p ng-show = "announcement.type == 'EventCancelled'">This event is cancelled</p>
+          <p ng-show = "announcement.type == 'LocationChanged'">The event's location has changed to {{announcement.newLocation}}</p>
+    
+        </a>
+      </div>
+    </div>
+
     <ion-slide-box show-pager="true">
       <ion-slide> 
         <div class="list">
           <div class="item item-divider">
             <h1>TODAY'S EVENTS</h1>
           </div>
-            
-          <a ng-repeat="event in eventsToday" href="#/tab/event-home/{{event.id}}" a class="item item-avatar-left">
-            <img class="listThumbnail" src="img/icon_{{event.category}}.png">
-            <h2>{{event.name}}</h2>
+          <a ng-repeat="event in eventsToday" ng-href="#/tab/event-home/{{event.id}}" class="item item-avatar-left item-text-wrap">
+            <img class="listThumbnail" ng-src="img/icon_{{event.category}}.png">
+            <h2>{{event.name}}<img ng-if="event.category=='Movies'" ng-src="img/event_rating{{event.rating}}.png"><img ng-if="event.category=='Movies'" src="img/event_closedCaptions.png"></h2>
             <p>{{event.parkName + "," + event.showtime}}</p>
           </a>
         </div>
@@ -42,9 +42,9 @@
           <div class="item item-divider">
             <h1>TOMORROW'S EVENTS</h1>
           </div>
-          <a ng-repeat="event in eventsTomorrow" href="#/tab/event-home/{{event.id}}" a class="item item-avatar-left">  
-            <img class="listThumbnail" src="img/icon_{{event.category}}.png">
-            <h2>{{event.name}}</h2>
+          <a ng-repeat="event in eventsTomorrow" ng-href="#/tab/event-home/{{event.id}}" class="item item-avatar-left item-text-wrap">  
+            <img class="listThumbnail" ng-src="img/icon_{{event.category}}.png">
+            <h2>{{event.name}}<img ng-if="event.category=='Movies'" ng-src="img/event_rating{{event.rating}}.png"><img ng-if="event.category=='Movies'" src="img/event_closedCaptions.png"></h2>
             <p>{{event.parkName + "," + event.showtime}}</p>
           </a>
         </div>
@@ -55,19 +55,21 @@
           <div class="item item-divider">
           <h1>THE DAY AFTER TOMORROW'S EVENTS</h1>
           </div>
-          <a ng-repeat="event in eventsDayAfter" href="#/tab/event-home/{{event.id}}" a class="item item-avatar-left">
-            <img class="listThumbnail" src="img/icon_{{event.category}}.png">
-            <h2>{{event.name}}</h2>
+          <a ng-repeat="event in eventsDayAfter" ng-href="#/tab/event-home/{{event.id}}" class="item item-avatar-left item-text-wrap">
+            <img class="listThumbnail" ng-src="img/icon_{{event.category}}.png">
+            <h2>{{event.name}}<img ng-if="event.category=='Movies'" ng-src="img/event_rating{{event.rating}}.png"><img ng-if="event.category=='Movies'" src="img/event_closedCaptions.png"></h2>
             <p>{{event.parkName + "," + event.showtime}}</p>
           </a>
         </div>
       </ion-slide>
         
-      </ion-slide-box>
-      <a href="#/tab/allevents" a class="item item-divider item-icon-right">
-        <h1>My Park Points</h1>
-        <i class="icon ion-chevron-right"></i>
-      </a>
+    </ion-slide-box>
+
+    <a ng-href="#/tab/allevents" a class="item item-divider item-icon-right">
+    <h1>My Park Points</h1>
+    <i class="icon ion-chevron-right"></i>
+    </a>
+
     <div class="list card">
       <div class="item">
          <h2>Night out in the Parks is</h2>
@@ -78,6 +80,7 @@
           <p>Get the best connection for your home with RCN Hight-Speed Internet & Digital TV</p>
       </div>
     </div>
+
     <div class="item item-image">
       <img src="img/home_footer.png">
     </div>

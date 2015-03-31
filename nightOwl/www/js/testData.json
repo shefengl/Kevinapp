@@ -4,8 +4,8 @@
       "id": 1,
       "name": "THE PRINCESS BRIDE",
       "category": "Movies",
-      "description": "",
-      "specialBackgroundUrl": "",
+      "description": "it is a good movie",
+      "specialBackgroundUrl": "img/testing_event_THEPRINCESSBRIDE.png",
       "trailerUrl": "",
       "parkId": 1,
       "startDate": "2015-03-13T18:21:00.511Z",
@@ -13,7 +13,8 @@
       "underwrittenDescription": "",
       "status": "default",
       "rating": "PG-13",
-      "closedCaptions": true
+      "closedCaptions": true,
+      "isFavorite": false
     },
     { 
       "id": 2,
@@ -27,7 +28,9 @@
       "endDate": "2015-03-13T18:22:30.511Z",
       "underwrittenDescription": "",
       "status": "default",
-      "rating": "ages 13+"
+      "rating":"",
+      "closedCaptions": false,
+      "isFavorite": false
     },
     { 
       "id": 3,
@@ -40,7 +43,10 @@
       "startDate": "2015-03-13T18:21:00.511Z",
       "endDate": "2015-03-13T18:22:30.511Z",
       "underwrittenDescription": "",
-      "status": "default"
+      "status": "default",
+      "rating":"",
+      "closedCaptions": false,
+      "isFavorite": false
     },
     { 
       "id": 4,
@@ -53,7 +59,10 @@
       "startDate": "2015-03-13T18:21:00.511Z",
       "endDate": "2015-03-13T18:22:30.511Z",
       "underwrittenDescription": "",
-      "status": "default"
+      "status": "default",
+      "rating":"",
+      "closedCaptions": false,
+      "isFavorite": false
     },
     { 
       "id": 5,
@@ -66,7 +75,10 @@
       "startDate": "2015-03-13T18:21:00.511Z",
       "endDate": "2015-03-13T18:22:30.511Z",
       "underwrittenDescription": "",
-      "status": "default"
+      "status": "default",
+      "rating":"",
+      "closedCaptions": false,
+      "isFavorite": false
     },
     { 
       "id": 6,
@@ -79,7 +91,10 @@
       "startDate": "2015-03-13T18:21:00.511Z",
       "endDate": "2015-03-13T18:22:30.511Z",
       "underwrittenDescription": "",
-      "status": "default"
+      "status": "default",
+      "rating":"",
+      "closedCaptions": false,
+      "isFavorite": false
     },
     { 
       "id": 7,
@@ -92,7 +107,10 @@
       "startDate": "2015-03-13T18:21:00.511Z",
       "endDate": "2015-03-13T18:22:30.511Z",
       "underwrittenDescription": "",
-      "status": "default"
+      "status": "default",
+      "rating":"",
+      "closedCaptions": false,
+      "isFavorite": false
     }
   ],
   "parks" : [
@@ -151,35 +169,35 @@
       "eventId": 1,
       "type": "TimeChanged",
       "newLocation": "",
-      "oldLocation": "",
-      "newTime": "2015-03-13T18:21:00.511Z",
-	  "oldTime": "2015-03-13T18:21:00.511Z",
-	  "oldParkId": 1,
-	  "newParkId": ""
+      "oldLocation": "Jonquill Park",
+      "oldStartTime": "2015-03-13T18:21:00.511Z",
+      "oldEndTime": "2015-03-13T18:21:00.511Z",
+      "newStartTime": "2015-03-13T19:21:00.511Z",
+      "newEndTime": "2015-03-13T19:21:00.511Z"
     },
-	
-	{
+    
+    {
       "id": 2,
       "eventId": 2,
       "type": "EventCancelled",
       "newLocation": "",
-      "oldLocation": "",
-      "newTime": "2015-03-13T18:21:00.511Z",
-	  "oldTime": "2015-03-13T18:21:00.511Z",
-	  "oldParkId": 2,
-	  "newParkId": ""
+      "oldLocation": "Fuller Park",
+      "oldStartTime": "2015-03-13T18:21:00.511Z",
+      "oldEndTime": "2015-03-13T18:21:00.511Z",
+      "newStartTime": "",
+      "newEndTime": ""
     },
 	
-	{
+    {
       "id": 3,
       "eventId": 3,
       "type": "LocationChanged",
-      "newLocation": "",
-      "oldLocation": "",
-      "newTime": "2015-03-13T18:21:00.511Z",
-	  "oldTime": "2015-03-13T18:21:00.511Z",
-	  "oldParkId": 2,
-	  "newParkId": 3
+      "newLocation": "Cornell Square Park",
+      "oldLocation": "Fuller Park",
+      "oldStartTime": "2015-03-13T18:21:00.511Z",
+      "oldEndTime": "2015-03-13T18:21:00.511Z",
+      "newStartTime": "",
+      "newEndTime": ""
     }
   ]
 }

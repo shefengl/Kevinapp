@@ -1,13 +1,26 @@
-// Ionic Starter App
+
+var db = null;
+ 
+ // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('nightOwl', ['ionic', 'nightOwl.controllers', 'nightOwl.services'])
+angular.module('nightOwl', [
+  'ionic', 
+  'ngCordova',
+  'nightOwl.services.dba', 
+  'nightOwl.services.eventManager',
+  'nightOwl.controllers.allEventsCtrl', 
+  'nightOwl.controllers.eventDetailCtrl',
+  'nightOwl.controllers.homeCtrl',
+  'nightOwl.controllers.moreCtrl',
+  'nightOwl.controllers.myEventsCtrl',
+  'nightOwl.controllers.nearbyCtrl'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $cordovaSQLite, $rootScope, eventManager) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,6 +31,42 @@ angular.module('nightOwl', ['ionic', 'nightOwl.controllers', 'nightOwl.services'
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    if (window.cordova) {
+      // Copy to the app's document folder
+      window.plugins.sqlDB.copy("nightowl.db", function() {
+          db = $cordovaSQLite.openDB("nightowl.db");
+
+        // TODO: remove this when we have web service and real data.
+        eventManager.testingFormatDates().then(function(result){
+          $rootScope.$broadcast('eventManagerUpdated');
+        });
+      }, function(error) {
+        // DB already exists. Ignore the error
+        //console.error("There was an error copying the database: " + error);
+        db = $cordovaSQLite.openDB("nightowl.db");
+        
+        // TODO: remove this when we have web service and real data.
+        eventManager.testingFormatDates().then(function(result){
+          $rootScope.$broadcast('eventManagerUpdated');
+        });
+      });
+
+
+    } else {
+      // The following code is only executed on the browser. This is code that is only used for testing.
+      // Ionic serve syntax
+      db = window.openDatabase("nightowl.db", "1.0", "Night Owl", -1);
+
+      // TODO: Data test section. Must be removed when we have web service updates and real data.
+      // Create database based on testData.json
+      eventManager.testingLoadFromJSON().then(function(result){
+        eventManager.testingFormatDates();
+        $rootScope.$broadcast('eventManagerUpdated');
+      });
+      // END TODO
+    }
+
   });
 })
 
@@ -38,77 +87,6 @@ angular.module('nightOwl', ['ionic', 'nightOwl.controllers', 'nightOwl.services'
     abstract: true,
     templateUrl: "templates/tabs.html"
   })
-
-  // Each tab has its own nav history stack:
-
-  .state('tab.nearby', {
-    url: '/nearby',
-    views: {
-      'tab-nearby': {
-        templateUrl: 'templates/tab-nearby.html',
-        controller: 'NearbyCtrl'
-      }
-    }
-  })
-
-  .state('tab.home', {
-    url: '/home',
-    views: {
-      'tab-home': {
-        templateUrl: 'templates/tab-home.html',
-        controller: 'HomeCtrl'
-      }
-    }
-  })
-
-  .state('tab.allevents', {
-    url: '/allevents',
-    views: {
-      'tab-allevents': {
-        templateUrl: 'templates/tab-allevents.html',
-        controller: 'AlleventsCtrl'
-      }
-    }
-  })
-  .state('tab.myevents', {
-    url: '/myevents/:isEditMode',
-    views: {
-      'tab-myevents': {
-        templateUrl: 'templates/tab-myevents.html',
-        controller: 'MyeventsCtrl'
-      }
-    }
-  })
-
-  .state('tab.more', {
-    url: '/more',
-    views: {
-      'tab-more': {
-        templateUrl: 'templates/tab-more.html',
-        controller: 'MoreCtrl'
-      }
-    }
-  })
-
-  .state('tab.event-all', {
-    url: '/event-all/:eventId',
-    views: {
-      'tab-allevents': {
-        templateUrl: 'templates/event-detail.html',
-        controller: 'EventDetailCtrl'
-      }
-    }
-  })
-
-  .state('tab.event-home', {
-    url: '/event-home/:eventId',
-    views: {
-      'tab-home': {
-        templateUrl: 'templates/event-detail.html',
-        controller: 'EventDetailCtrl'
-      }
-    }
-  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');

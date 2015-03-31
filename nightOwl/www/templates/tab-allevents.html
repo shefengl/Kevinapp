@@ -1,51 +1,50 @@
 <ion-view view-title="All Events">
 
-    <div class="row">
-      <div class="col col-80 header-title" ng-click="openFilterModal()">ALL EVENTS <i class='ion-chevron-down'></i></div>
-      <!--<div class="col "><a class="button button-icon icon ion-navicon-round">LIST</a><a class="button button-icon icon ion-android-pin">MAP</a></div>-->
-      <div class="col col-10">
-        <a class="tab-item tiny-labels">
-          <i class="icon ion-navicon-round"></i>LIST
-        </a>
-      </div>
-      <div class="col col-10">
-        <a class="tab-item tiny-labels">
-          <i class="icon ion-android-pin"></i>MAP
-        </a>
-      </div>
+  <div class="row">
+    <div class="col col-80 header-title" ng-click="openFilterModal()">ALL EVENTS <i class='ion-chevron-down'></i></div>
+    <!--<div class="col "><a class="button button-icon icon ion-navicon-round">LIST</a><a class="button button-icon icon ion-android-pin">MAP</a></div>-->
+    <div class="col col-10">
+      <a class="tab-item tiny-labels">
+        <i class="icon ion-navicon-round"></i>LIST
+      </a>
     </div>
-
+    <div class="col col-10">
+      <a class="tab-item tiny-labels">
+        <i class="icon ion-android-pin"></i>MAP
+      </a>
+    </div>
+  </div>
   
-    <!--<div>
-      <button type="button" class="buttons" ng-click="loginAccount()">View By Date </button>
-      <button type="button" class="buttons" ng-click="loginAccount()">View A-Z</button>
-    </div> -->
+  <!--<div>
+    <button type="button" class="buttons" ng-click="loginAccount()">View By Date </button>
+    <button type="button" class="buttons" ng-click="loginAccount()">View A-Z</button>
+  </div> -->
 
-    <!-- Only show this if viewing by list -->
-    <div class="button-bar">
-      <a class="button">View by Date</a>
-      <a class="button">View A-Z</a>
-    </div>
+  <!-- Only show this if viewing by list -->
+  <div class="button-bar">
+    <a class="button">View by Date</a>
+    <a class="button">View A-Z</a>
+  </div>
 
-    <ion-content class="padding allEventsSpacing">
+  <ion-content class="padding allEventsSpacing">
     <div data-ng-repeat="(date, events) in events" class="alpha_list">
+
       <ion-item class="item item-divider" id="index_{{date}}">
         {{date}}
       </ion-item>
 
-      <a ng-repeat="event in events | filter:filters" a href="#/tab/event-all/{{event.id}}" class="item item-avatar-left">         
-        <img class="listThumbnail" src="img/icon_{{event.category}}.png">
-        <h2>{{event.name}}</h2>
-        <p>{{event.parkName + "," + event.showtime}}</p>
+      <a ng-switch on="event.specialBackgroundUrl" ng-style="{'background-image':'url({{event.specialBackgroundUrl}})'}" ng-repeat="event in events | filter:filters" ng-href="#/tab/event-all/{{event.id}}" class="item item-avatar-left">           
+        <!--<img  class="listThumbnail" ng-src="{{event.specialBackgroundUrl == '' && 'img/icon_event.category.png' || 'img/icon_Movies_White.png'}}">-->
+        <img class="listThumbnail" ng-switch-when="" ng-src='img/icon_{{event.category}}.png'>
+        <img class="listThumbnail" ng-switch-default src='img/icon_Movies_White.png'>
+        <h2 ng-class="{'featuredMovieFonts': event.specialBackgroundUrl !=''}" >{{event.name}}<img ng-if="event.category=='Movies'" ng-src="img/event_rating{{event.rating}}.png"><img ng-if="event.category=='Movies'" src="img/event_closedCaptions.png"></h2>
+        <h2 ng-class="{'featuredMovieFonts': event.specialBackgroundUrl!=''}">{{event.parkName + "," + event.showtime}}        <i ng-show="event.specialBackgroundUrl !=''" class="ion-chevron-right featuredMovieFonts"></i></h2>
       </a>
 
     </div>
   </ion-content>
 
   <ul class="alpha_sidebar">
-    <li ng-click="gotoList('index_{{month.date}}')"ng-repeat="month in months" 
-    -webkit-transform: translate(-50%, -50%);> 
-        {{month.name}}
-    </li>
+    <li ng-click="gotoList('index_{{month.date}}')"ng-repeat="month in months" -webkit-transform: translate(-50%, -50%);>{{month.name}}</li>
   </ul>
 </ion-view>
