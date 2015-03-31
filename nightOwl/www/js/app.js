@@ -71,7 +71,7 @@ angular.module('nightOwl', ['ionic', 'nightOwl.controllers', 'nightOwl.services'
     }
   })
   .state('tab.myevents', {
-    url: '/myevents',
+    url: '/myevents/:isEditMode',
     views: {
       'tab-myevents': {
         templateUrl: 'templates/tab-myevents.html',

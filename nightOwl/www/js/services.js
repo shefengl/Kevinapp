@@ -7,7 +7,7 @@ angular.module('nightOwl.services', [])
   var parks = [];
   var favoriteEvents = [];
   var announcements = [];
-
+  
   function getData(callback) {
     if (cachedEvents){
       callback();
@@ -63,8 +63,8 @@ angular.module('nightOwl.services', [])
           var endDate = new Date(events[i].endDate);
           events[i].showtime = formatAMPM(startDate) + '-' + formatAMPM(endDate);
         }
-          
-          // Prepare useful data on announcements
+		
+		// Prepare useful data on announcements
 		for (var i = 0; i < announcements.length; i++) {
 		  // TODO(andi): Remove this when moving to a real database. TESTING PURPOSES ONLY
 		  var date = new Date();
@@ -107,10 +107,15 @@ angular.module('nightOwl.services', [])
 		  // Assign showtime for convenience purposes
 		  announcements[i].oldShowTime = formatAMPM(new Date(oldStartDate)) + '-' + formatAMPM(new Date(oldEndDate));
 		  announcements[i].newShowTime = formatAMPM(new Date(newStartDate)) + '-' + formatAMPM(new Date(newEndDate));
+		  
+		
+		  
 		}
-          
-          
-          
+		
+		    
+		favoriteEvents[0] = events[0];
+		favoriteEvents[1] = events[3];
+		
         cachedEvents = true;
         callback();
       });
@@ -198,10 +203,19 @@ angular.module('nightOwl.services', [])
       });
     },
     getFavoriteEvents: function (callback) {
-      getData(function(){
-        callback(favoriteEvents);
-      });
+      	getData(function(){
+      		callback(favoriteEvents);
+      	});
     },
+	isFavoriteEvent: function (event, callback){
+		var index = favoriteEvents.indexOf(event);
+		if(index!= -1){
+			callback();
+			return true;
+		}
+		callback();
+		return false;		
+	},
     getAnnouncements: function(callback) {
       getData(function(){
         callback(announcements);

@@ -10,10 +10,10 @@ h1{
 
 h2{
     font-family: Futura-Bold; 
-    font-size: 5px;
+    font-size: 17px;
     color: #000000; 
     letter-spacing: 1px; 
-    line-height: 20px;
+    line-height: 17px;
 }
 
 h3{
@@ -127,6 +127,10 @@ p{
     top: 120px;
 }
 
+.myEventsSpacing {
+    top: 50px;
+}
+
 .textBlue{
     color: #0066CC;
 }
@@ -138,12 +142,12 @@ p{
 .bottomleft {
     position: absolute;
     bottom: 0;
-    top:100px;
+    top:300px;
     left: 0em;
-    width:500px;
+    width:100px;
     font-weight: bold;
     color: #fff;
-    font-size: 20px;
+    font-size: 50px;
 }
 .topright {
     position: absolute; 
@@ -171,6 +175,7 @@ img.listThumbnail {
 .movieBg{
     background: blue;
 }
+
 
 .musicFont{
     color: aqua;
@@ -210,12 +215,4 @@ img.listThumbnail {
 
 .festivalBg{
     background: orangered;
-}
-
-.announcementBg{
-    background-color: #FFFF66!important;
-}
-
-.featuredMovieFonts{
-    color:white;
 }
