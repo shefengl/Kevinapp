@@ -90,8 +90,17 @@ angular.module('nightOwl.services.eventManager', [])
       return dba.query("UPDATE EVENT SET ISFAVORITE = 0 WHERE ID = (?)", [event.id]);
     },
     getFavoriteEvents: function (callback) {
+		
       return dba.query("SELECT * FROM EventView WHERE ISFAVORITE = 1").then(function(result){
         return dba.getAll(result);
+      });
+    },
+	isFavoriteEvent: function (callback) {////////////////////////添加了这个函数
+      return dba.query("SELECT * FROM EventView WHERE ISFAVORITE = 1 AND ID = (?)", [event.id]).then(function(result){
+        if (result.length>0)
+			return true;
+		else
+			return false;
       });
     },
     getAnnouncements: function(callback) {

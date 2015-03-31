@@ -54,8 +54,8 @@ angular.module('nightOwl.controllers.eventDetailCtrl', ['ionic'])
   $scope.closeMyEventsModal = function() {
     $scope.myeventsmodal.hide();
   };
-  $scope.isFavoriteEvent = function(event){
-	return eventManager.isFavoriteEvent(event,function(){});
+  $scope.isFavoriteEvent = function(event){////////////////////////修改过
+	eventManager.isFavoriteEvent(event).then(function(){});
   };
   $scope.removeMyEvent = function(event) {
 	eventManager.removeEventFromFavorites(event).then(function(){});
