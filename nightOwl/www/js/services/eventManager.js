@@ -90,19 +90,19 @@ angular.module('nightOwl.services.eventManager', [])
       return dba.query("UPDATE EVENT SET ISFAVORITE = 0 WHERE ID = (?)", [event.id]);
     },
     getFavoriteEvents: function (callback) {
-		
       return dba.query("SELECT * FROM EventView WHERE ISFAVORITE = 1").then(function(result){
         return dba.getAll(result);
       });
     },
-	isFavoriteEvent: function (callback) {////////////////////////添加了这个函数
-      return dba.query("SELECT * FROM EventView WHERE ISFAVORITE = 1 AND ID = (?)", [event.id]).then(function(result){
-        if (result.length>0)
+      
+    isFavoriteEvent: function (event) {
+      return dba.query("SELECT ISFAVORITE FROM EventView WHERE ID = (?)", [event.id]).then(function(result){
+        if (result == 1)
 			return true;
 		else
 			return false;
       });
-    },
+    },  
     getAnnouncements: function(callback) {
       return dba.query("SELECT * FROM AnnouncementView").then(function(result){
         return formatAnnouncementList(dba.getAll(result));
@@ -125,6 +125,8 @@ angular.module('nightOwl.services.eventManager', [])
     },
     checkForUpdates: function() {
       // TODO: Create this function
+      //http://cpd-nightowl.appspot.com/api/getAllData
+      //http://cpd-nightowl.appspot.com/api/getUpdatedData?lastUpdate=201509
     },
     //-----------------------------
     // TODO: Remove the following functions. These functions have been created just to deliver a seemless development between
@@ -140,10 +142,10 @@ angular.module('nightOwl.services.eventManager', [])
           tx.executeSql("DROP VIEW IF EXISTS EventView");
           tx.executeSql("DROP VIEW IF EXISTS AnnouncementView");
           tx.executeSql("CREATE TABLE IF NOT EXISTS park (id integer primary key, name text, address text, latitude text, longitude text, radius integer, polylines text, phoneNumber text, region text)");
-          tx.executeSql("CREATE TABLE IF NOT EXISTS event (id integer primary key, name text, description text, category text, specialBackgroundUrl text, trailerUrl text, parkId integer, startDate text, endDate text, underwrittenDescription text, status text, rating text, closedCaptions integer, isFavorite integer)");
+          tx.executeSql("CREATE TABLE IF NOT EXISTS event (id integer primary key, name text, description text, category text, specialBackgroundUrl text, trailerUrl text, parkId integer, startDate text, endDate text, underwrittenDescription text, status text, rating text, closedCaptions integer, performedBy text, isFavorite integer)");
           tx.executeSql("CREATE TABLE IF NOT EXISTS announcement (id integer primary key, eventId integer, type text, newLocation text, oldLocation text, newStartTime text, oldStartTime text, newEndTime text, oldEndTime text)");
           tx.executeSql("CREATE VIEW EventView AS SELECT e.id, e.name, e.description, e.category, e.specialBackgroundUrl, e.trailerUrl, e.parkId, e.startDate, e.endDate, e.underwrittenDescription, e.status, e.rating, e.closedCaptions, e.isFavorite, p.name AS parkName FROM EVENT e, PARK p WHERE e.parkId = p.id");
-          tx.executeSql("CREATE VIEW AnnouncementView AS SELECT a.id, a.eventId, a.type, a.newLocation, a.oldLocation, a.newStartTime, a.oldStartTime, a.newEndTime, a.oldEndTime, e.name AS eventName, e.category FROM Announcement a, Event e WHERE e.id = a.eventId");
+          tx.executeSql("CREATE VIEW AnnouncementView AS SELECT a.id, a.eventId, a.type, a.newLocation, a.oldLocation, a.newStartTime, a.oldStartTime, a.newEndTime, a.oldEndTime, e.name AS eventName, e.category, e.rating FROM Announcement a, Event e WHERE e.id = a.eventId");
           
           // Insert collection
           for (var i = 0; i < data.parks.length; i++) {
@@ -153,8 +155,8 @@ angular.module('nightOwl.services.eventManager', [])
           }
           for (var i = 0; i < data.events.length; i++) {
             var e = data.events[i];
-            tx.executeSql("INSERT INTO event(id, name, description, category, specialBackgroundUrl, trailerUrl, parkId, startDate, endDate, underwrittenDescription, status, rating, closedCaptions, isFavorite) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-              [e.id, e.name, e.description, e.category, e.specialBackgroundUrl, e.trailerUrl, e.parkId, e.startDate, e.endDate, e.underwrittenDescription, e.status, e.rating, e.closedCaptions, e.isFavorite]);
+            tx.executeSql("INSERT INTO event(id, name, description, category, specialBackgroundUrl, trailerUrl, parkId, startDate, endDate, underwrittenDescription, status, rating, closedCaptions, performedBy, isFavorite) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+              [e.id, e.name, e.description, e.category, e.specialBackgroundUrl, e.trailerUrl, e.parkId, e.startDate, e.endDate, e.underwrittenDescription, e.status, e.rating, e.closedCaptions, e.performedBy, e.isFavorite]);
           }
           for (var i = 0; i < data.announcements.length; i++) {
             var a = data.announcements[i]; 

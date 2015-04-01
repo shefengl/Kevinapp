@@ -1,14 +1,14 @@
 <ion-view view-title="My Events">
   <div ng-show = "isEditMode == 'false'" class="row">
-      	<div class="col col-80 header-title" ng-click="openFilterModal()">ALL MY EVENTS <i class='ion-chevron-down'></i></div>
-      	<div class="col col-20">
+    <div class="col col-80 header-title" ng-click="openFilterModal()">ALL MY EVENTS <i class='ion-chevron-down'></i></div>
+      <div class="col col-20">
        	<a class="tab-item tiny-labels" ng-click="setEditMode('true')"><h1>EDIT</h1> </a>
- 		</div>
-	</div>
+      </div>
+  </div>
     
-    <div ng-show = "isEditMode == 'true'" class="row">
-      	<div class="col col-80 header-title" ><i class='ion-trash-a'></i> DELETE {{checkedNum}}</div>
-      	<div class="col col-20">
+  <div ng-show = "isEditMode == 'true'" class="row">
+    <div class="col col-80 header-title" ><i class='ion-trash-a'></i> DELETE {{checkedNum}}</div>
+      <div class="col col-20">
          <button class="button icon-left ion-android-close" ng-click="removeCheckedEvents()">
     	 DONE
    		 </button>
@@ -16,25 +16,20 @@
 	</div>
   
   <ion-content class="padding myEventsSpacing">
-    	<div data-ng-repeat="(date, favoriteevents) in favoriteevents" class="alpha_list">
-     		<ion-item class="item item-divider" id="index_{{date}}">
-       			{{date}}
-      		</ion-item>
+    <div data-ng-repeat="(date, favoriteevents) in favoriteevents" class="alpha_list">
+    <ion-item class="item item-divider" id="index_{{date}}">{{date}}</ion-item>
 			
-      		<a ng-show="isEditMode == 'false'" ng-repeat="event in favoriteevents | filter:filters" a href="#/tab/event-all/{{event.id}}" class="item item-avatar-left">         
-        		<img class="listThumbnail" src="img/icon_{{event.category}}.png">
+      <a ng-show="isEditMode == 'false'" ng-repeat="event in favoriteevents | filter:filters" a href="#/tab/event-all/{{event.id}}" class="item item-avatar-left">         
+        <img class="listThumbnail" src="img/icon_{{event.category}}.png">
+          <h2>{{event.name}}</h2>
+          <p>{{event.parkName + "," + event.showtime}}</p>
+      </a>
+      <div ng-show = "isEditMode == 'true'" ng-repeat="event in favoriteevents | filter:filters" class="item item-avatar-left item-checkbox">         
+        <label class="checkbox" ng-class="{'checkbox-positive':event.category=='Movies','checkbox-balanced':event.category=='Music','checkbox-assertive':event.category=='Festival','checkbox-assertive':event.category=='Theater','checkbox-royal':event.category=='Dancing','checkbox-assertive':event.category=='Family Fun'}">
+          <input ng-click="clickonbox(event.id)" type = "checkbox" /></label>
         		<h2>{{event.name}}</h2>
         		<p>{{event.parkName + "," + event.showtime}}</p>
-      		</a>
-	        <div ng-show = "isEditMode == 'true'" ng-repeat="event in favoriteevents | filter:filters" class="item item-avatar-left item-checkbox">         
-				<label class="checkbox" ng-class="{'checkbox-positive':event.category=='Movies','checkbox-balanced':event.category=='Music','checkbox-assertive':event.category=='Festival','checkbox-assertive':event.category=='Theater','checkbox-royal':event.category=='Dancing','checkbox-assertive':event.category=='Family Fun'}">
-                <input ng-click="clickonbox(event.id)" type = "checkbox" />
-                </label>
-        		<h2>{{event.name}}</h2>
-        		<p>{{event.parkName + "," + event.showtime}}</p>
-      		</div>
-    	</div>
-  	</ion-content>
+      </div>
+      </div>
+   </ion-content>
 </ion-view>
-
-

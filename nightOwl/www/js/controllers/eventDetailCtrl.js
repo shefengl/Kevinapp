@@ -31,9 +31,16 @@ angular.module('nightOwl.controllers.eventDetailCtrl', ['ionic'])
     eventManager.getEventPark(event).then(function(park) {
       $scope.park = park;
     });
-    eventManager.getEventShowtimes(event).then(function(showtime){
-        $scope.showtime=showtime;
+    eventManager.getEventShowtimes(event).then(function(showtimes){
+        $scope.showtimes=showtimes;
     });
+    $scope.date=new Date(event.startDate).toDateString();
+    $scope.isFavoriteEvent = function(event){
+        event.isFavoriteEvent(event).then(function(){});
+  };
+    $scope.removeMyEvent = function(event) {
+	eventManager.removeEventFromFavorites(event).then(function(){});
+  };
   });
   
   $scope.goBack = function() {
@@ -54,12 +61,7 @@ angular.module('nightOwl.controllers.eventDetailCtrl', ['ionic'])
   $scope.closeMyEventsModal = function() {
     $scope.myeventsmodal.hide();
   };
-  $scope.isFavoriteEvent = function(event){////////////////////////修改过
-	eventManager.isFavoriteEvent(event).then(function(){});
-  };
-  $scope.removeMyEvent = function(event) {
-	eventManager.removeEventFromFavorites(event).then(function(){});
-  };
+  
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
     $scope.myeventsmodal.remove();

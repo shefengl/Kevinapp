@@ -1,29 +1,29 @@
 <ion-modal-view>
   <ion-header-bar>
     <button class="button button-icon icon ion-ios-close-empty buttons-nobg" ng-click="closeFilterModal()">CLOSE</button>
-	  <button class="button button-clear button-dark buttons-nobg">CLEAR</button>
+	  <button class="button button-clear button-dark buttons-nobg" ng-click="selectFilter('')">CLEAR</button>
   </ion-header-bar>
   <ion-content class="padding">
     <h1>FILTER BY CATEGORY</h1>
 	  <div class="row">
-      <div class="col col-33 buttons-nobg" ng-click="filters.category=['Movies']">
+      <div class="col col-33 buttons-nobg" ng-click="selectFilter('Movies')">
         <center><img src="img/icon_Movies.png">MOVIES</center>
       </div>
-      <div class="col col-33 buttons-nobg">
+      <div class="col col-33 buttons-nobg" ng-click="selectFilter('Dancing')">
         <center><img src="img/icon_Dancing.png">DANCING</center>
       </div>
-      <div class="col col-33 buttons-nobg">
+      <div class="col col-33 buttons-nobg" ng-click="selectFilter('Music')">
         <center><img src="img/icon_Music.png">MUSIC</center>
       </div>
     </div>
     <div class="row">
-      <div class="col col-33 buttons-nobg">
+      <div class="col col-33 buttons-nobg" ng-click="selectFilter('Theater')">
         <center><img src="img/icon_Theater.png">THEATER</center>
       </div>
-      <div class="col col-33 buttons-nobg">
+      <div class="col col-33 buttons-nobg" ng-click="selectFilter('Family Fun')">
         <center><img src="img/icon_Family Fun.png">FAMILY FUN</center>
       </div>
-      <div class="col col-33 buttons-nobg">
+      <div class="col col-33 buttons-nobg" ng-click="selectFilter('Festival')">
         <center><img src="img/icon_Festival.png">FESTIVAL</center>
       </div>
     </div>

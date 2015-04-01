@@ -1,4 +1,3 @@
-
 /* Empty. Add your own CSS if you like */
 h1{
      font-family: Futura-Bold; 
@@ -28,7 +27,7 @@ h3{
 .header-title{
     font-family: SFMoviePoster-Bold; 
     font-size: 34px;
-    color: #000 
+    color: #000;
     letter-spacing: 3.4px;
     line-height: 34px;
 }
@@ -131,7 +130,6 @@ p{
 .myEventsSpacing {
     top: 60px;
 }
-
 .textBlue{
     color: #0066CC;
 }
@@ -222,5 +220,5 @@ img.listThumbnail {
 }
 
 .featuredMovieFonts{
-    color:white;
+    color:white !important;
 }

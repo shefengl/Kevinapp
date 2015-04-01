@@ -18,7 +18,8 @@ angular.module('nightOwl', [
   'nightOwl.controllers.homeCtrl',
   'nightOwl.controllers.moreCtrl',
   'nightOwl.controllers.myEventsCtrl',
-  'nightOwl.controllers.nearbyCtrl'])
+  'nightOwl.controllers.nearbyCtrl',
+  'nightOwl.directives.eventRow'])
 
 .run(function($ionicPlatform, $cordovaSQLite, $rootScope, eventManager) {
   $ionicPlatform.ready(function() {

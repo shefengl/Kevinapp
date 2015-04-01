@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Futura-Bold';
+    src: url('fonts/FuturaStd-Bold.eot');
+    src: url('fonts/FuturaStd-Bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/FuturaStd-Bold.ttf') format('truetype'),
+         url('fonts/FuturaStd-Bold.svg#futurastd_bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Futura-Book';
+    src: url('fonts/FuturaStd-Book.eot');
+    src: url('fonts/FuturaStd-Book.eot?#iefix') format('embedded-opentype'),
+         url('fonts/FuturaStd-Book.ttf') format('truetype'),
+         url('fonts/FuturaStd-Book.svg#futurastd_book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFMoviePoster-Bold';
+    src: url('fonts/SF Movie Poster Bold-webfont.eot');
+    src: url('fonts/SF Movie Poster Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/SF Movie Poster Bold-webfont.woff2') format('woff2'),
+         url('fonts/SF Movie Poster Bold-webfont.woff') format('woff'),
+         url('fonts/SF Movie Poster Bold-webfont.ttf') format('truetype'),
+         url('fonts/SF Movie Poster Bold-webfont.svg#sf_movie_posterbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GeometricSlab703BT-Medium';
+    src: url('fonts/GeometricSlab703BT-Medium-webfont.eot');
+    src: url('fonts/GeometricSlab703BT-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GeometricSlab703BT-Medium-webfont.woff2') format('woff2'),
+         url('fonts/GeometricSlab703BT-Medium-webfont.woff') format('woff'),
+         url('fonts/GeometricSlab703BT-Medium-webfont.ttf') format('truetype'),
+         url('fonts/GeometricSlab703BT-Medium-webfont.svg#geometric_slabserif_703medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

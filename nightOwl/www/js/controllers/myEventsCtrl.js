@@ -15,7 +15,7 @@ angular.module('nightOwl.controllers.myEventsCtrl', ['ionic'])
 .controller('myEventsCtrl', function($scope, $stateParams, $ionicModal, eventManager) {
    
     
-    eventManager.getFavoriteEvents().then(function(favoriteevents){
+        eventManager.getFavoriteEvents().then(function(favoriteevents){
 		$scope.isEditMode = $stateParams.isEditMode;
     	$scope.favoriteevents = {};
 		// Create autodividers for events
@@ -70,15 +70,15 @@ angular.module('nightOwl.controllers.myEventsCtrl', ['ionic'])
 			$scope.checkedNum ++;
 		}
 	};
-
-  
-   // Filter modal
+ 
+    
+    
   $ionicModal.fromTemplateUrl('templates/modal-filter.html', {
     scope: $scope,
     animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+   }).then(function(modal) {
+  $scope.modal = modal;
+   });
   $scope.openFilterModal = function() {
     $scope.modal.show();
   };
@@ -97,5 +97,7 @@ angular.module('nightOwl.controllers.myEventsCtrl', ['ionic'])
   $scope.$on('modal.removed', function() {
     // Execute action
   });
+  
+  
     
 });

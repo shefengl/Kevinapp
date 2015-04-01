@@ -16,21 +16,53 @@ angular.module('nightOwl.controllers.allEventsCtrl', ['ionic'])
 
 .controller('allEventsCtrl', function($scope, $stateParams, $location, $ionicScrollDelegate, $ionicModal, eventManager) {
 
-  function getEvents() {
-    eventManager.getEvents().then(function(events){ 
-      $scope.events = {};
-      $scope.months = iterateMonths(events);
 
-      // Create autodividers for events
-      var date;
+  function groupEvents(groupingFunction){
+    $scope.groupedEvents = {};
+    var group;
+    for(var i = 0; i < $scope.events.length; i++) {
+      group = groupingFunction($scope.events[i]);
+      if(!$scope.groupedEvents[group]) $scope.groupedEvents[group] = [];
+      $scope.groupedEvents[group].push ( $scope.events[i] );
+    }
+  }
 
-      for(var i = 0; i < events.length; i++) {
-        date = new Date(events[i].startDate).toDateString();
+  $scope.groupEventsByDate = function() {
 
-        if(!$scope.events[date]) $scope.events[date] = [];
-
-        $scope.events[date].push ( events[i] );
+    function formatDate(date) {
+      var dateString = new Date(date).toDateString();
+      var split = dateString.split(" ");
+      switch (split[0]) {
+        case "Mon": split[0] = "MONDAY"; break;
+        case "Tue": split[0] = "TUESDAY"; break;
+        case "Wed": split[0] = "WEDNESDAY"; break;
+        case "Thu": split[0] = "THURSDAY"; break;
+        case "Fri": split[0] = "FRIDAY"; break;
+        case "Sat": split[0] = "SATURDAY"; break;
+        case "Sun": split[0] = "SUNDAY"; break;
       }
+
+      return split[0] + ", " + split[1] + " " + split[2];
+    }
+
+    groupEvents(function(ev){
+      return formatDate(ev.startDate);//new Date(ev.startDate).toDateString();
+    });
+  }
+
+  $scope.groupEventsAlphabetically = function() {
+    groupEvents(function(ev){
+      return ev.name.substring(0,1).toUpperCase();
+    });
+  }
+
+  function getEvents() {
+    eventManager.getEvents().then(function(events){
+
+      $scope.events = events;
+      $scope.months = iterateMonths(events);
+      
+      $scope.groupEventsByDate();
 
       // Create a months array with names and dates
       function iterateMonths(events) {
@@ -58,9 +90,8 @@ angular.module('nightOwl.controllers.allEventsCtrl', ['ionic'])
     getEvents();
   });
 
-  // Be sure to call thi
+  // Be sure to call this when first loading this.
   getEvents();
-    
 
   // Click month event
   $scope.gotoList = function(id){
@@ -69,6 +100,7 @@ angular.module('nightOwl.controllers.allEventsCtrl', ['ionic'])
   }
 
   // Filter modal
+  $scope.currentFilter = "";
   $ionicModal.fromTemplateUrl('templates/modal-filter.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -93,4 +125,8 @@ angular.module('nightOwl.controllers.allEventsCtrl', ['ionic'])
   $scope.$on('modal.removed', function() {
     // Execute action
   });
+  $scope.selectFilter = function(filter) {
+    // Do animation?
+    $scope.currentFilter = filter;
+  };
 });
