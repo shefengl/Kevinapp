@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.nightowl757320" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.digitaslbi.nightowl" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
   <name>Night Owl</name>
   <description>
-        Night Owl is the Chicago Park District's app to view the ongoing events on Chicago's parks.
-    </description>
+    Night Owl is the Chicago Park District's app to view the ongoing events on Chicago's parks.
+  </description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
-    </author>
+    Ionic Framework Team
+  </author>
+
+  <!-- RLO - Adding plugins so they should be picked up by Phonegap Build  -->
+  <gap:plugin name="org.apache.cordova.device" />
+  <gap:plugin name="org.apache.cordova.console" />
+  <gap:plugin name="com.ionic.keyboard" />
+  <gap:plugin name="com.brodysoft.sqliteplugin" />
+  <gap:plugin name="me.rahul.plugins.sqldb" />
+
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>

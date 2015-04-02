@@ -1,22 +1,16 @@
-<ion-modal-view>
-	  <ion-header-bar>
-    	<button class="button button-icon icon ion-android-close buttons-nobg" ng-click="closeMyEventsModal()">CLOSE</button>
-	  </ion-header-bar>
+<ion-modal-view ng-class="{'movieBg':event.category=='Movies','musicBg':event.category=='Music','festivalBg':event.category=='Festival','theaterBg':event.category=='Theater','danceBg':event.category=='Dancing','familyBg':event.category=='Family Fun'}">
+  <ion-header-bar ng-class="{'movieBg':event.category=='Movies','musicBg':event.category=='Music','festivalBg':event.category=='Festival','theaterBg':event.category=='Theater','danceBg':event.category=='Dancing','familyBg':event.category=='Family Fun'}" class="popupborder">
+    <button class="button button-icon icon ion-android-close buttons-nobg popupFonts" ng-click="closeMyEventsModal()">CLOSE</button>
+  </ion-header-bar>
 	<ion-content class="padding myEventsSpacing">
- 		<div class="item item-body text-left">
-    		<div class="item item-divider">
-            
-	        </div>
-        	<h1><b>THE EVENT IS SAVED TO MYEVENTS</b></h1>
-    		<div class="item item-divider">
-            
-	        </div>
-            
-            <b>SHOWTIME</b>
-    	    <h2>{{event.showtime}}</h2>
-          	<h2>{{park.address}}</h2>
-            <a><b>GET DIRECTIONS</b></a>
-          	<a class="button button-full btnBorder" ng-class="{'movieBg':event.category=='Movies','musicBg':event.category=='Music','festivalBg':event.category=='Festival','theaterBg':event.category=='Theater','danceBg':event.category=='Dancing','familyBg':event.category=='Family Fun'}">EXPORT TO CALENDAR</a>
-		</div>
+      <div ng-class="{'movieBg':event.category=='Movies','musicBg':event.category=='Music','festivalBg':event.category=='Festival','theaterBg':event.category=='Theater','danceBg':event.category=='Dancing','familyBg':event.category=='Family Fun'}"class="item item-body text-left popupFonts">
+        <h1><b class="popupFonts">THE EVENT IS SAVED TO MYEVENTS</b></h1>
+          <b>SHOWTIME</b>
+          <h2 class="popupFonts">{{event.showtime}}</h2>
+          <h2 class="popupFonts">{{park.address}}</h2>
+          <a><b>GET DIRECTIONS</b></a>
+          </div>
+          <a class="button button-full btnBorder popupbuttonBg" ><b ng-class="{'movieFont':event.category=='Movies','musicFont':event.category=='Music','festivalFont':event.category=='Festival','theaterFont':event.category=='Theater','danceFont':event.category=='Dancing','familyFont':event.category=='Family Fun'}">EXPORT TO CALENDAR</b></a>
+		
     </ion-content>
 </ion-modal-view>

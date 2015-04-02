@@ -1,34 +1,28 @@
 <ion-view view-title="All Events">
 
   <div class="row">
-    <div class="col col-80 header-title" ng-click="openFilterModal()" ng-class="{'movieFont':currentFilter=='Movies','musicFont':currentFilter=='Music','festivalFont':currentFilter=='Festival','theaterFont':currentFilter=='Theater','danceFont':currentFilter=='Dancing','familyFont':currentFilter=='Family Fun'}">
-    <img ng-show="currentFilter != ''" ng-src="img/icon_{{currentFilter}}.png">
-      {{currentFilter==""?"ALL EVENTS":currentFilter.toUpperCase()}}<i class='ion-chevron-down'></i>
+    <div class="col col-80 header-title" ng-click="openFilterModal()" ng-class="filterStyleFont">
+    <img ng-if="currentFilter != ''" ng-src="img/icon_{{currentFilter}}.png" class="smallIcon">
+      {{currentFilter==""?"ALL EVENTS":currentFilter.toUpperCase()}}<i class='ion-chevron-down arrow-font'></i>
     </div>
-    <!--<div class="col "><a class="button button-icon icon ion-navicon-round">LIST</a><a class="button button-icon icon ion-android-pin">MAP</a></div>-->
     <div class="col col-10">
-      <a class="tab-item tiny-labels">
-        <i class="icon ion-navicon-round" ng-class="{'movieFont':currentFilter=='Movies','musicFont':currentFilter=='Music','festivalFont':currentFilter=='Festival','theaterFont':currentFilter=='Theater','danceFont':currentFilter=='Dancing','familyFont':currentFilter=='Family Fun'}"></i>LIST
+      <a class="tab-item tiny-labels" ng-class="filterStyleFont">
+        <i class="icon ion-navicon-round" ></i>LIST
       </a>
     </div>
     <div class="col col-10">
-      <a class="tab-item tiny-labels">
+      <a class="tab-item tiny-labels" ng-class="filterStyleFont">
         <i class="icon ion-android-pin"></i>MAP
       </a>
     </div>
   </div>
-  
-  <!--<div>
-    <button type="button" class="buttons" ng-click="loginAccount()">View By Date </button>
-    <button type="button" class="buttons" ng-click="loginAccount()">View A-Z</button>
-  </div> -->
 
   <!-- Only show this if viewing by list -->
-  <div class="button-bar">
-    <div class="button" ng-click="groupEventsByDate()">View by Date</div>
-    <div class="button" ng-click="groupEventsAlphabetically()">View A-Z</div>
+  <div class="button-bar padding segmentedButton-bar">
+    <div class="button segmentedButton" ng-click="groupEventsByDate()" ng-class="{active: grouping == 'Date'}" >View by Date</div>
+    <div class="button segmentedButton" ng-click="groupEventsAlphabetically()" ng-class="{active: grouping == 'Alphabetical'}">View A-Z</div>
   </div>
-
+  <hr>
   <ion-content class="padding allEventsSpacing">
     <div data-ng-repeat="(group, events) in groupedEvents" class="alpha_list">
 

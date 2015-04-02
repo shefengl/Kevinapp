@@ -20,7 +20,7 @@
     <ion-item class="item item-divider" id="index_{{date}}">{{date}}</ion-item>
 			
       <a ng-show="isEditMode == 'false'" ng-repeat="event in favoriteevents | filter:filters" a href="#/tab/event-all/{{event.id}}" class="item item-avatar-left">         
-        <img class="listThumbnail" src="img/icon_{{event.category}}.png">
+        <img class="listThumbnail" ng-src="img/icon_{{event.category}}.png">
           <h2>{{event.name}}</h2>
           <p>{{event.parkName + "," + event.showtime}}</p>
       </a>

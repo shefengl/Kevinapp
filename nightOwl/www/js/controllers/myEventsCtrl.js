@@ -13,10 +13,10 @@ angular.module('nightOwl.controllers.myEventsCtrl', ['ionic'])
 })
 
 .controller('myEventsCtrl', function($scope, $stateParams, $ionicModal, eventManager) {
-   
-    
+            
+       		$scope.isEditMode = $stateParams.isEditMode;
+
         eventManager.getFavoriteEvents().then(function(favoriteevents){
-		$scope.isEditMode = $stateParams.isEditMode;
     	$scope.favoriteevents = {};
 		// Create autodividers for events
     	var date;
@@ -39,7 +39,7 @@ angular.module('nightOwl.controllers.myEventsCtrl', ['ionic'])
 			for(var i = 0; i < events.length; i++) {
     	  		if($scope.checkedEvents[events[i].id])
 				{
-					eventManager.removeEventFromFavorites(events[i]).then(function(){});
+					eventManager.removeEventFromFavorites(events[i]);
 					$scope.checkedEvents[events[i].id] = false;
 					$scope.checkedNum --;
 				}

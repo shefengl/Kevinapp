@@ -35,12 +35,29 @@ angular.module('nightOwl.controllers.eventDetailCtrl', ['ionic'])
         $scope.showtimes=showtimes;
     });
     $scope.date=new Date(event.startDate).toDateString();
-    $scope.isFavoriteEvent = function(event){
-        event.isFavoriteEvent(event).then(function(){});
-  };
+
+    $scope.isFavoriteEvent=function(event){
+      eventManager.isFavoriteEvent(event);
+    };
+  
     $scope.removeMyEvent = function(event) {
-	eventManager.removeEventFromFavorites(event).then(function(){});
+	eventManager.removeEventFromFavorites(event);
+    //event.isFavorite='false';
   };
+    var prefix = '';
+
+    // Create style
+    switch (event.category) {
+      case 'Movies': prefix = 'movie'; break;
+      case 'Music': prefix = 'music'; break;
+      case 'Festival': prefix = 'festival'; break;
+      case 'Theater': prefix = 'theater'; break;
+      case 'Dancing': prefix = 'dance'; break;
+      case 'Family Fun': prefix = 'family'; break;
+    }
+    $scope.filterStyleFont = prefix + "Font";
+    $scope.filterStyleBg = prefix + "Bg";
+
   });
   
   $scope.goBack = function() {
@@ -55,7 +72,8 @@ angular.module('nightOwl.controllers.eventDetailCtrl', ['ionic'])
     $scope.myeventsmodal = myeventsmodal;
   });
   $scope.openMyEventsModal = function(event) {
-	eventManager.addEventToFavorites(event).then(function(){});
+	eventManager.addEventToFavorites(event);
+    //event.isFavorite='true';
     $scope.myeventsmodal.show();
   };
   $scope.closeMyEventsModal = function() {
@@ -75,4 +93,8 @@ angular.module('nightOwl.controllers.eventDetailCtrl', ['ionic'])
   $scope.$on('modal.removed', function() {
     // Execute action
   });
+    
+  
+    
+    
 });

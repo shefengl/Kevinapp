@@ -13,7 +13,7 @@
       <div class="item item-body text-left">
         <h2><b>{{event.rating}}</b></h2>
         <hr>
-        <h2 ng-class="{'movieFont':event.category=='Movies','musicFont':event.category=='Music','festivalFont':event.category=='Festival','theaterFont':event.category=='Theater','danceFont':event.category=='Dancing','familyFont':event.category=='Family Fun'}">
+        <h2 ng-class="filterStyleFont">
               {{event.description}}
         </h2>
         <hr>
@@ -25,20 +25,19 @@
           <h1><b>SHOWTIMES</b></h1>
       </div>
       <div class="item item-body text-left">
-          <h2><b style="text-align:left">{{date}}</b></h2><h2><b>{{event.showtime}}</b></h2>
+          <h2><b style="text-align:left">{{date}}</b><p style="float:right">{{event.showtime}}</p></h2>
         <hr>
-        <h2 ng-class="{'movieFont':event.category=='Movies','musicFont':event.category=='Music','festivalFont':event.category=='Festival','theaterFont':event.category=='Theater','danceFont':event.category=='Dancing','familyFont':event.category=='Family Fun'}"  href="#"><b>{{park.name}}</b></h2>
+        <h2 ng-class="filterStyleFont" href="#"><b>{{park.name}}</b></h2>
           <h2>{{park.address}}</h2>
           <br>
           <h2>Underwriiten by The Logan Square Neigorhood Association</h2>
-          <a ng-show ="!isFavoriteEvent(event)" ng-click="openMyEventsModal(event)" class="button button-full btnBorder" ng-class="{'movieBg':event.category=='Movies','musicBg':event.category=='Music','festivalBg':event.category=='Festival','theaterBg':event.category=='Theater','danceBg':event.category=='Dancing','familyBg':event.category=='Family Fun'}">SAVE To MY EVENTS</a>
-          <div class="row" ng-show = "isFavoriteEvent(event)">
+          <a ng-show ="!isFavoriteEvents(event)" ng-click="openMyEventsModal(event)" class="button button-full btnBorder" ng-class="filterStyleBg">SAVE To MY EVENTS</a>
+          <div class="row" ng-show = "isFavoriteEvents(event)">
           <h2><b>SAVED TO MY EVENTS</b></h2>
-          <div class="item item-divider">
+          <h2 >&#124;</h2>
+          <a ng-click="removeMyEvent(event)"><h2 ng-class="filterStyleFont">REMOVE</h2></a>
           </div>
-          <a ng-click="removeMyEvent(event)"><h2>REMOVE</h2></a>
-          </div>
-          <h2 ng-class="{'movieFont':event.category=='Movies','musicFont':event.category=='Music','festivalFont':event.category=='Festival','theaterFont':event.category=='Theater','danceFont':event.category=='Dancing','familyFont':event.category=='Family Fun'}"><b>SHARE THIS EVENT</b></h2>
+          <h2 ng-class="filterSytleFont"><b>SHARE THIS EVENT</b></h2>
       </div>
       <div class="item item-body text-left">
           <h1>

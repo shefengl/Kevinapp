@@ -28,6 +28,7 @@ angular.module('nightOwl.controllers.allEventsCtrl', ['ionic'])
   }
 
   $scope.groupEventsByDate = function() {
+    $scope.grouping = "Date";
 
     function formatDate(date) {
       var dateString = new Date(date).toDateString();
@@ -51,6 +52,7 @@ angular.module('nightOwl.controllers.allEventsCtrl', ['ionic'])
   }
 
   $scope.groupEventsAlphabetically = function() {
+    $scope.grouping = "Alphabetical";
     groupEvents(function(ev){
       return ev.name.substring(0,1).toUpperCase();
     });
@@ -127,6 +129,19 @@ angular.module('nightOwl.controllers.allEventsCtrl', ['ionic'])
   });
   $scope.selectFilter = function(filter) {
     // Do animation?
+    var prefix = '';
     $scope.currentFilter = filter;
+
+    // Create style
+    switch (filter) {
+      case 'Movies': prefix = 'movie'; break;
+      case 'Music': prefix = 'music'; break;
+      case 'Festival': prefix = 'festival'; break;
+      case 'Theater': prefix = 'theater'; break;
+      case 'Dancing': prefix = 'dance'; break;
+      case 'Family Fun': prefix = 'family'; break;
+    }
+    $scope.filterStyleFont = prefix + "Font";
+    $scope.filterStyleBg = prefix + "Bg";
   };
 });

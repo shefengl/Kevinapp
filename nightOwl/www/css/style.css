@@ -61,9 +61,9 @@ p{
 }
 .alpha_sidebar{
 	position: absolute;
-	top:120px;
-	right: 	10px;
-	z-index: 100000
+	top: 140px;
+	right: 10px;
+	z-index: 100000;
 }
 .alpha_sidebar li{
 	font-size: 10px;
@@ -97,7 +97,7 @@ p{
     border-width: 2px;
     border-color: green;
 }
-
+/*
 .buttons{
     background: #00975A;
     width:400px;
@@ -108,19 +108,56 @@ p{
     font-size: 13px;
     color: #FFFFFF; letter-spacing: 2px; line-height: 25px;
 }
+*/
+
+.segmentedButton-bar {
+    padding: 0;
+}
+
+.segmentedButton-bar > .button:first-child {
+    border-radius: 6px 0px 0px 6px; 
+}
+.segmentedButton-bar > .button:last-child {
+    border-right-width: 1px;
+    border-radius: 0px 6px 6px 0px;
+}
+
+.segmentedButton {
+    background: white;
+    min-height: 10px;
+    color: #888888;
+    border-color: #00975A;
+    font-family: Futura-Book;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.segmentedButton.active{
+    min-height: 45px !important;
+    background: #00975A;
+    border-color: #00975A !important;
+    font-family: Futura-Book;
+    color: #FFFFFF;
+}
+
+/* For the symbol on All Events v */
+.arrow-font{
+    font-size: 12px;
+    vertical-align: middle;
+}
 
 
 .buttons-nobg{
     font-family: Futura-Bold; 
     font-size: 13px;
     letter-spacing: 2px;
-        line-height: 25px;
+    line-height: 25px;
 }
 
 .nearbyTab {
-  border-color: #00975A;
-  background-color: #00975A;
-  color: #fff; 
+    border-color: #00975A;
+    background-color: #00975A;
+    color: #fff; 
 }
 
 .allEventsSpacing {
@@ -167,52 +204,56 @@ img.listThumbnail {
     border-radius: 0% !important;
 }
 
+img.smallIcon {
+    max-height: 20px;
+}
+
 .movieFont{
-    color: blue;
+    color: #4A6FB5;
 }
 
 .movieBg{
-    background: blue;
+    background: #4A6FB5;
 }
 
 .musicFont{
-    color: aqua;
+    color: #40BCAA;
 }
 
 .musicBg{
-    background: aqua;
+    background: #40BCAA;
 }
 
 .theaterFont{
-    color: red;
+    color: #EE3A50;
 }
 
 .theaterBg{
-    background: red;
+    background: #EE3A50;
 }
 
 .danceFont{
-    color: purple;
+    color: #693191;
 }
 
 .danceBg{
-    background: purple;
+    background: #693191;
 }
 
 .familyFont{
-    color: orange;
+    color: #E7A223;
 }
 
 .familyBg{
-    background: orange;
+    background: #E7A223;
 }
 
 .festivalFont{
-    color: orangered;
+    color: #F05722;
 }
 
 .festivalBg{
-    background: orangered;
+    background: #F05722;
 }
 
 .announcementBg{
@@ -221,4 +262,13 @@ img.listThumbnail {
 
 .featuredMovieFonts{
     color:white !important;
+}
+.popupbuttonBg{
+    color:white;
+}
+.popupFonts{
+    color: white;
+}
+.popupborder{
+    border-style: transparent;
 }

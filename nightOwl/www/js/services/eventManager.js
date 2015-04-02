@@ -96,8 +96,9 @@ angular.module('nightOwl.services.eventManager', [])
     },
       
     isFavoriteEvent: function (event) {
-      return dba.query("SELECT ISFAVORITE FROM EventView WHERE ID = (?)", [event.id]).then(function(result){
-        if (result == 1)
+      return dba.query("SELECT ISFAVORITE FROM EventView WHERE ID = (?)",[event.id]).then(function(result){
+        var rlt=dba.getById(result)
+        if (rlt == 1)
 			return true;
 		else
 			return false;
@@ -126,7 +127,7 @@ angular.module('nightOwl.services.eventManager', [])
     checkForUpdates: function() {
       // TODO: Create this function
       //http://cpd-nightowl.appspot.com/api/getAllData
-      //http://cpd-nightowl.appspot.com/api/getUpdatedData?lastUpdate=201509
+      //http://cpd-nightowl.appspot.com/api/getUpdatedData?lastUpdate=20150331
     },
     //-----------------------------
     // TODO: Remove the following functions. These functions have been created just to deliver a seemless development between

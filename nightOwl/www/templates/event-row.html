@@ -1,11 +1,4 @@
-<!--<a class="item item-avatar-left item-text-wrap" ng-href="#/tab/{{tabname}}/{{event.id}}">
-  <img class="listThumbnail" ng-src="img/icon_{{event.category}}.png">
-  <h2>{{event.name}}<img ng-if="event.category=='Movies'" ng-src="img/event_rating{{event.rating}}.png"><img ng-if="event.category=='Movies'" src="img/event_closedCaptions.png"></h2>
-  <p>{{event.parkName + "," + event.showtime}}</p>
-</a>
--->
-
-<a ng-switch on="event.specialBackgroundUrl" ng-style="{'background-image':'url({{event.specialBackgroundUrl}})'}" ng-href="#/tab/{{tabname}}/{{event.id}}" class="item item-avatar-left">           
+<a ng-switch on="event.specialBackgroundUrl" ng-style="{'background-image':event.specialBackgroundUrl==''? '':'url({{event.specialBackgroundUrl}})'}" ng-href="#/tab/{{tabname}}/{{event.id}}" class="item item-avatar-left">
   <img ng-switch-when="" class="listThumbnail" ng-src='img/icon_{{event.category}}.png'>
   <img ng-switch-default class="listThumbnail" src='img/icon_Movies_White.png'>
   <h2 ng-class="{'featuredMovieFonts': event.specialBackgroundUrl !=''}" >{{event.name}}<img ng-if="event.category=='Movies'" ng-src="img/event_rating{{event.rating}}.png"><img ng-if="event.category=='Movies'" src="img/event_closedCaptions.png"></h2>
